@@ -23,6 +23,37 @@ namespace ClientMCR
         public MainWindow()
         {
             InitializeComponent();
+
+
+            //    public WindowStartupLocation WindowStartupLocation 
+            //{ 
+            //    get; 
+            //    set; 
+            //}
+
+            //getting off the main window into our Search Window i'm doing it because i'm experimenting
+            SearchWindow sw = new SearchWindow(); //create your new form.
+            sw.Show(); //show the new form.
+            this.Close();
         }
+
+        //private void CompanyCustomerSearch(object sender, RoutedEventArgs e)
+        //{
+
+        //    //var newForm = new CompanyCustomerSearchResults(); //create your new form.
+        //    //newForm.Show(); //show the new form.
+        //    //this.Close(); //only if you want to close the current form.
+
+        //    //NavigationService CCS = NavigationService.GetNavigationService(CompanyCustomerSearch);
+        //    //this.Frame.Navigate(typeof(CompanyCustomerSearch));
+        //    //NavigationService CCS = new NavigationService(CompanyCustomerSearch);
+        //    //Uri uri = new Uri("CompanyCustomerSearch.xaml", UriKind.Relative);
+        //    //NavigationService.Navigate(uri);
+
+        //    //CompanyCustomerSearch page = new CompanyCustomerSearch();
+
+
+
+        //}
     }
 }
