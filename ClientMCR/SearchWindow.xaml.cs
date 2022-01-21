@@ -26,16 +26,21 @@ namespace ClientMCR
 
         private void CompanyCustomerSearch(object sender, RoutedEventArgs e)
         {
-
-
             CompanyCustomerSearchResults newForm = new CompanyCustomerSearchResults(); //create your new form.
             newForm.Show(); //show the new form.
             this.Close();
         }
 
-        private void ClearCompanyCustomerSearch(object sener, RoutedEventArgs e)
+        private void ClearCompanyCustomerSearch(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void AddCompanyEntityButton(object sender, RoutedEventArgs e)
+        {
+            AddCompanyEntity newAddCompanyEntityForm = new AddCompanyEntity(); //create your new form.
+            newAddCompanyEntityForm.Show(); //show the new form.
+            this.Close();
         }
     }
 }
