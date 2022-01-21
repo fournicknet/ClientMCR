@@ -32,5 +32,10 @@ namespace ClientMCR
             newForm.Show(); //show the new form.
             this.Close();
         }
+
+        private void ClearCompanyCustomerSearch(object sener, RoutedEventArgs e)
+        {
+
+        }
     }
 }
