@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ClientMCR"
         mc:Ignorable="d"
         WindowStartupLocation="Manual" Left="10" Top="10"
-        Title="SearchWindow" Height="450" Width="800" Background="#FF5B689D">
+        Title="SearchWindow" Height="500" Width="800" Background="#FF5B689D">
     <!--Manage Customer Relations-->
     <!--#5B689D color of back ground-->
     <!--#C8D1F4 color of menus-->
@@ -15,13 +15,13 @@
             <RowDefinition Height ="1*"/>
             <RowDefinition Height ="4*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*">
-                <!--<TextBlock Text="Search by Company"/>-->
-            </ColumnDefinition>
-            <ColumnDefinition Width="2*"/>
-        </Grid.ColumnDefinitions>
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            --><!--<TextBlock Text="Search by Company"/>--><!--
 
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>-->
+        
         <!--Header-->
         <Border Grid.ColumnSpan="2" Background="#C8D1F4">
             <!--The header needs to contain an image and text block to be displayed-->
@@ -37,121 +37,148 @@
         <Grid Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" >
             <StackPanel>
                 <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="8*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="8*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
+                    <StackPanel Grid.Column="1" Grid.Row="0" >
+                        <Button Content="empty" IsEnabled="False" Visibility ="Hidden"/>
+                    </StackPanel>
+                    <TextBlock Text="Search by Company" FontSize="20" Grid.Column="1" Grid.Row="1" />
+                    <StackPanel Grid.Row="2" Grid.Column="1"  >
+                        <!--VerticalAlignment="Center"-->
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="4*"/>
+                            </Grid.ColumnDefinitions>
+                        
+                            <TextBlock Text="Company Name   " Grid.Column="0" Grid.Row="1" />
+                            <TextBox x:Name="CompanyNameBox" Text="" Grid.Column="1" Grid.Row="1" />
+                            <TextBlock Text="Company ID   " Grid.Column="0" Grid.Row="2" />
+                            <TextBox x:Name="CompanyIDBox" Text="" Grid.Column="1" Grid.Row="2" />
+                            <TextBlock Text="Phone #" Grid.Column="0" Grid.Row="3" />
+                            <TextBox x:Name="CompanyPhoneNumberBox" Text="" Grid.Column="1" Grid.Row="3"/>
+                            <TextBlock Text="eMail" Grid.Column="0" Grid.Row="4" />
+                            <TextBox x:Name="CompanyeMailBox" Text="" Grid.Column="1" Grid.Row="4"/>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Grid.Row="3" >
+                        <Button Content="empty" IsEnabled="False" Visibility ="Hidden"/>
+                    </StackPanel>
+                    <TextBlock Text="Search by Customer" FontSize="20" Grid.Column="1" Grid.Row="4" />
+                    <StackPanel Grid.Column="1" Grid.Row="5" >
+                        <!--VerticalAlignment="Center"-->
+                    
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <!--Auto-->
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="4*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="First Name           " Grid.Column="0" Grid.Row="1" />
+                            <TextBox x:Name="CustomerFirstNameBox" Text="" Grid.Column="1" Grid.Row="1" />
+                            <TextBlock Text="Last Name   " Grid.Column="0" Grid.Row="2" />
+                            <TextBox x:Name="CustomerLastNameBox" Text="" Grid.Column="1" Grid.Row="2" />
+                            <TextBlock Text="Customer ID   " Grid.Column="0" Grid.Row="3" />
+                            <TextBox x:Name="CustomerIDBox" Text="" Grid.Column="1" Grid.Row="3" />
+                            <TextBlock Text="Phone #" Grid.Column="0" Grid.Row="4" />
+                            <TextBox x:Name="CustomerPhoneNumberBox" Text="" Grid.Column="1" Grid.Row="4"/>
+                            <TextBlock Text="eMail" Grid.Column="0" Grid.Row="5" />
+                            <TextBox x:Name="CustomereMailBox" Text="" Grid.Column="1" Grid.Row="5"/>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Grid.Row="6" VerticalAlignment="Center" >
+                        <!--outside the Company and Customer search area -->
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Content="empty" Grid.Column="5" Grid.Row="0" IsEnabled="False" Visibility ="Hidden"/>
+                            <Button Content="Search" Grid.Column="5" Grid.Row="1" Click="CompanyCustomerSearch" />
+                            <Button Content="empty" Grid.Column="5" Grid.Row="2" IsEnabled="False" Visibility ="Hidden"/>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Grid.Row="7" VerticalAlignment="Center" >
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Content="Add Company" Grid.Column="1" Grid.Row="0"/>
+                            <Button Content="Add Customer" Grid.Column="3" Grid.Row="0"/>
+                            <Button Content="empty" Grid.Column="3" Grid.Row="1" IsEnabled="False" Visibility ="Hidden"/>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Grid.Row="8">
+                        <Button Content="empty" IsEnabled="False" Visibility ="Hidden"/>
+                    </StackPanel>
                 </Grid>
-                <StackPanel Grid.Row="0" VerticalAlignment="Center" >
-                    <TextBlock Text="Search by Company" FontSize="20"/>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="1*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="Company Name   " Grid.Column="0" />
-                        <TextBox x:Name="CompanyNameBox" Text="" Grid.Column="1" />
-                        <TextBlock Text="Company ID   " Grid.Column="0" Grid.Row="1" />
-                        <TextBox x:Name="CompanyIDBox" Text="" Grid.Column="1" Grid.Row="1" />
-                        <TextBlock Text="Phone #" Grid.Column="0" Grid.Row="2" />
-                        <TextBox x:Name="CompanyPhoneNumberBox" Text="" Grid.Column="1" Grid.Row="2"/>
-                        <TextBlock Text="eMail" Grid.Column="0" Grid.Row="3" />
-                        <TextBox x:Name="CompanyeMailBox" Text="" Grid.Column="1" Grid.Row="3"/>
-                    </Grid>
-                </StackPanel>
-
-                <StackPanel Grid.Row="1" VerticalAlignment="Center" >
-                    <TextBlock Text="Search by Customer" FontSize="20"/>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="1*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="First Name           " Grid.Column="0" />
-                        <TextBox x:Name="CustomerFirstNameBox" Text="" Grid.Column="1" />
-                        <TextBlock Text="Last Name   " Grid.Column="0" Grid.Row="1" />
-                        <TextBox x:Name="CustomerLastNameBox" Text="" Grid.Column="1" Grid.Row="1" />
-                        <TextBlock Text="Customer ID   " Grid.Column="0" Grid.Row="2" />
-                        <TextBox x:Name="CustomerIDBox" Text="" Grid.Column="1" Grid.Row="2" />
-                        <TextBlock Text="Phone #" Grid.Column="0" Grid.Row="3" />
-                        <TextBox x:Name="CustomerPhoneNumberBox" Text="" Grid.Column="1" Grid.Row="3"/>
-                        <TextBlock Text="eMail" Grid.Column="0" Grid.Row="4" />
-                        <TextBox x:Name="CustomereMailBox" Text="" Grid.Column="1" Grid.Row="4"/>
-                    </Grid>
-                </StackPanel>
-                <StackPanel Grid.Row="2" VerticalAlignment="Center" >
-                    <!--outside the Company and Customer search area -->
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="1*"/>
-                        </Grid.ColumnDefinitions>
-                        <Button Content="empty" Grid.Column="5" Grid.Row="0" IsEnabled="False" Visibility ="Hidden"/>
-                        <Button Content="Search" Grid.Column="5" Grid.Row="1" Click="CompanyCustomerSearch" />
-                        <Button Content="empty" Grid.Column="5" Grid.Row="2" IsEnabled="False" Visibility ="Hidden"/>
-                    </Grid>
-                </StackPanel>
-                <StackPanel Grid.Row="3" VerticalAlignment="Center" >
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="3*"/>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="3*"/>
-                            <ColumnDefinition Width="1*"/>
-                        </Grid.ColumnDefinitions>
-                        <Button Content="Add Company" Grid.Column="1" Grid.Row="0"/>
-                        <Button Content="Add Customer" Grid.Column="3" Grid.Row="0"/>
-                        <Button Content="empty" Grid.Column="3" Grid.Row="1" IsEnabled="False" Visibility ="Hidden"/>
-                    </Grid>
-                </StackPanel>
             </StackPanel>
 
 
         </Grid>
 
         <!--MainArea-->
-        <Grid Grid.Row="1" Grid.Column="1"  >
+        <!--<Grid Grid.Row="1" Grid.Column="1"  >
             <StackPanel>
                 <Border BorderThickness="10, 10, 10, 10">
-                    <!--<Grid>
+                    --><!--<Grid>
                         <ListView Name="DynamicSearchWindow" >
                             
                         </ListView>
-                    </Grid>-->
+                    </Grid>--><!--
                 </Border>
             </StackPanel>
-        </Grid>
+        </Grid>-->
     </Grid>
 </Window>
 
