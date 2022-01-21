@@ -24,7 +24,7 @@ namespace ClientMCR
         {
             InitializeComponent();
 
-
+            CompanyEntityClass CEC = new CompanyEntityClass();
             //    public WindowStartupLocation WindowStartupLocation 
             //{ 
             //    get; 
