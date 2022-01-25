@@ -25,14 +25,15 @@ namespace ClientMCR
             InitializeComponent();
 
             CompanyEntityClass CEC = new CompanyEntityClass();
+            CEC.SetCompanyNameField("Instanciated");
             //    public WindowStartupLocation WindowStartupLocation 
             //{ 
             //    get; 
             //    set; 
             //}
-
+            
             //getting off the main window into our Search Window i'm doing it because i'm experimenting
-            SearchWindow sw = new SearchWindow(); //create your new form.
+            SearchWindow sw = new SearchWindow(CEC); //create your new form.
             sw.Show(); //show the new form.
             this.Close();
         }

@@ -19,17 +19,32 @@ namespace ClientMCR
     /// </summary>
     public partial class SearchWindow : Window
     {
-        public SearchWindow()
+
+        //CompanyEntityClass SW_CES = null;
+        CompanyEntityClass SW_CES;
+        public SearchWindow(CompanyEntityClass CCES)
         {
             InitializeComponent();
+            
+            SW_CES = CCES;
         }
 
         private void CompanyCustomerSearch(object sender, RoutedEventArgs e)
         {
-            CompanyCustomerSearchResults newForm = new CompanyCustomerSearchResults(); //create your new form.
-            newForm.Show(); //show the new form.
-            this.Close();
+            //sudo code * if search results return nothing Do this
+
+            if (SW_CES != null)
+            {
+                SW_CES.SetCompanyNameField(CompanyNameBox.Text);
+            }
+
+            //commented out since the form is not ready, probibly won't use this code since we are listing results int mainwindow anyway
+            //CompanyCustomerSearchResults newForm = new CompanyCustomerSearchResults(); //create your new form.
+            //newForm.Show(); //show the new form.
+            //this.Close();
         }
+
+
 
         private void ClearCompanyCustomerSearch(object sender, RoutedEventArgs e)
         {
@@ -38,7 +53,7 @@ namespace ClientMCR
 
         private void AddCompanyEntityButton(object sender, RoutedEventArgs e)
         {
-            AddCompanyEntity newAddCompanyEntityForm = new AddCompanyEntity(); //create your new form.
+            AddCompanyEntity newAddCompanyEntityForm = new AddCompanyEntity(SW_CES); //create your new form.
             newAddCompanyEntityForm.Show(); //show the new form.
             this.Close();
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClientMCR
 {
-    internal class CompanyEntityClass
+    public class CompanyEntityClass
     {
         string CompanyNameField = "null", CompanyIDField = "null", PhoneNumberField = "null", eMailAddress = "null", AddressLine1 = "null", AddressLine2 = "null", 
             AddressCity = "null", AddressState = "null", AddressZipCode = "null";

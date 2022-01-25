@@ -19,14 +19,26 @@ namespace ClientMCR
     /// </summary>
     public partial class AddCompanyEntity : Window
     {
-        public AddCompanyEntity()
+        CompanyEntityClass ADE_CCES;
+        public AddCompanyEntity(CompanyEntityClass CES)
         {
             InitializeComponent();
+            //CompanyEntityClass ADE_CCES = null;
+            ADE_CCES = CES;
+            if (ADE_CCES != null)
+            { 
+                CompanyNameBox.Text = ADE_CCES.GetCompanyNameField();
+            }
+            if(ADE_CCES == null)
+            {
+                CompanyNameBox.Text = "was null ref - look at how the class is created and passed between wpf pages";
+            }
         }
 
         private void SearchWindowButton(object sender, RoutedEventArgs e)
         {
-            SearchWindow sw = new SearchWindow(); //create your new form.
+            
+            SearchWindow sw = new SearchWindow(ADE_CCES); //create your new form.
             sw.Show(); //show the new form.
             this.Close();
         }
