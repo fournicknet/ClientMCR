@@ -27,6 +27,7 @@ namespace ClientMCR
             InitializeComponent();
             
             SW_CES = CCES;
+            CompanyIDBox.Text = "Not Required";
         }
 
         private void CompanyCustomerSearch(object sender, RoutedEventArgs e)
@@ -53,6 +54,15 @@ namespace ClientMCR
 
         private void AddCompanyEntityButton(object sender, RoutedEventArgs e)
         {
+
+
+
+
+            SW_CES.SetCompanyNameField(CompanyNameBox.Text);
+            SW_CES.SetCompanyIDField(CompanyIDBox.Text);
+            SW_CES.SetCompanyPhoneNumberField(CompanyPhoneNumberBox.Text);
+            SW_CES.SeteMailAddress(CompanyeMailBox.Text);
+
             AddCompanyEntity newAddCompanyEntityForm = new AddCompanyEntity(SW_CES); //create your new form.
             newAddCompanyEntityForm.Show(); //show the new form.
             this.Close();

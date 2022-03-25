@@ -15,13 +15,7 @@
             <RowDefinition Height ="1*"/>
             <RowDefinition Height ="4*"/>
         </Grid.RowDefinitions>
-        <!--<Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            --><!--<TextBlock Text="Search by Company"/>--><!--
-
-            <ColumnDefinition Width="2*"/>
-        </Grid.ColumnDefinitions>-->
-        
+       
         <!--Header-->
         <Border Grid.ColumnSpan="2" Background="#C8D1F4">
             <!--The header needs to contain an image and text block to be displayed-->
@@ -91,7 +85,8 @@
                             <StackPanel Grid.Column="1" Grid.Row="3" >
                                 <Button Content="empty" IsEnabled="False" Visibility ="Hidden"/>
                             </StackPanel>
-                            <TextBlock Text="Search by Customer" FontSize="20" Grid.Column="1" Grid.Row="4" Background="#C8D1F4" />
+                            <!--This line is commented out because it belongs on another form/page - Search by customer info should be seperate from company search info-->
+                            <!--<TextBlock Text="Search by Customer" FontSize="20" Grid.Column="1" Grid.Row="4" Background="#C8D1F4" />-->
                             <StackPanel Grid.Column="1" Grid.Row="5" >
                                 <!--VerticalAlignment="Center"-->
 
@@ -109,7 +104,8 @@
                                         <ColumnDefinition Width="2*"/>
                                         <ColumnDefinition Width="4*"/>
                                     </Grid.ColumnDefinitions>
-                                    <TextBlock Text="First Name           " Grid.Column="0" Grid.Row="1" Background="#C8D1F4"  />
+                                    <!--This line is commented out because it belongs on another form/page - Search by customer info should be seperate from company search info-->
+                                    <!--<TextBlock Text="First Name           " Grid.Column="0" Grid.Row="1" Background="#C8D1F4"  />
                                     <TextBox x:Name="CustomerFirstNameBox" Text="" Grid.Column="1" Grid.Row="1" />
                                     <TextBlock Text="Last Name   " Grid.Column="0" Grid.Row="2" Background="#C8D1F4" />
                                     <TextBox x:Name="CustomerLastNameBox" Text="" Grid.Column="1" Grid.Row="2" />
@@ -118,7 +114,7 @@
                                     <TextBlock Text="Phone #" Grid.Column="0" Grid.Row="4" Background="#C8D1F4" />
                                     <TextBox x:Name="CustomerPhoneNumberBox" Text="" Grid.Column="1" Grid.Row="4"/>
                                     <TextBlock Text="eMail" Grid.Column="0" Grid.Row="5" Background="#C8D1F4" />
-                                    <TextBox x:Name="CustomereMailBox" Text="" Grid.Column="1" Grid.Row="5"/>
+                                    <TextBox x:Name="CustomereMailBox" Text="" Grid.Column="1" Grid.Row="5"/>-->
                                 </Grid>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Grid.Row="6" VerticalAlignment="Center" >
@@ -158,8 +154,9 @@
                                         <ColumnDefinition Width="3*"/>
                                         <ColumnDefinition Width="1*"/>
                                     </Grid.ColumnDefinitions>
+                                    <!--This line is commented out because it belongs on another form/page - Search by customer info should be seperate from company search info-->
                                     <Button Content="Add Company" Grid.Column="1" Grid.Row="0" Click="AddCompanyEntityButton"  />
-                                    <Button Content="Add Customer" Grid.Column="3" Grid.Row="0"/>
+                                    <!--<Button Content="Add Customer" Grid.Column="3" Grid.Row="0"/>-->
                                     <Button Content="empty" Grid.Column="3" Grid.Row="1" IsEnabled="False" Visibility ="Hidden"/>
                                 </Grid>
                             </StackPanel>
@@ -190,22 +187,7 @@
                     </StackPanel>
                 </Grid>
             </StackPanel>
-
-
         </Grid>
-
-        <!--MainArea-->
-        <!--<Grid Grid.Row="1" Grid.Column="1"  >
-            <StackPanel>
-                <Border BorderThickness="10, 10, 10, 10">
-                    --><!--<Grid>
-                        <ListView Name="DynamicSearchWindow" >
-                            
-                        </ListView>
-                    </Grid>--><!--
-                </Border>
-            </StackPanel>
-        </Grid>-->
     </Grid>
 </Window>
 

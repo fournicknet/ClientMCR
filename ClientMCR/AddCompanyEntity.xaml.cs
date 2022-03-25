@@ -24,11 +24,16 @@ namespace ClientMCR
         {
             InitializeComponent();
             //CompanyEntityClass ADE_CCES = null;
+            //If CompanyEntityClass was not null we are assigning it to ADE_CCES and pulling data from the search window that was passed to us
             ADE_CCES = CES;
             if (ADE_CCES != null)
-            { 
+            {
                 CompanyNameBox.Text = ADE_CCES.GetCompanyNameField();
+                CompanyIDBox.Text = ADE_CCES.GetCompanyIDField();
+                CompanyPhoneNumberBox.Text = ADE_CCES.GetCompanyPhoneNumberField();
+                CompanyeMailBox.Text = ADE_CCES.GeteMailAddress();
             }
+
             if(ADE_CCES == null)
             {
                 CompanyNameBox.Text = "was null ref - look at how the class is created and passed between wpf pages";
@@ -43,11 +48,10 @@ namespace ClientMCR
             this.Close();
         }
 
+        //we are passing the company entityclass to companyrecordcreate class to add the company to file/database
         private void SaveCompanyEntityButton(object sender, RoutedEventArgs e)
         {
-            // Not developed yet.
-            throw new NotImplementedException();
-
+            CompanyRecordCreate.CRC(ADE_CCES);
         }
 
         private void ClearCompanyEntityButton(object sender, RoutedEventArgs e)
