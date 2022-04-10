@@ -24,18 +24,19 @@ namespace ClientMCR
         {
             InitializeComponent();
 
-            CompanyEntityClass CEC = new CompanyEntityClass();
-            CEC.SetCompanyNameField("Instanciated");
-            //    public WindowStartupLocation WindowStartupLocation 
-            //{ 
-            //    get; 
-            //    set; 
-            //}
+            ////The following below is how to create a new xaml page and navigate to it directly
+            //CompanyEntityClass CEC = new CompanyEntityClass();
+            //CEC.SetCompanyNameField("Instanciated");
+            //SearchWindow sw = new SearchWindow(CEC); //create your new form.
+            //sw.Show(); //show the new form.
+            //this.Close();
             
-            //getting off the main window into our Search Window i'm doing it because i'm experimenting
-            SearchWindow sw = new SearchWindow(CEC); //create your new form.
-            sw.Show(); //show the new form.
-            this.Close();
+            CompanyEntityClass CEC = new CompanyEntityClass();
+            CEC.SetCompanyNameField("Instanced");
+            Main.Content = new CompanySearchPage(CEC, Main);
+            //SearchWindow sw = new SearchWindow(CEC);
+            //this.Content = sw;
+
         }
 
         //private void CompanyCustomerSearch(object sender, RoutedEventArgs e)

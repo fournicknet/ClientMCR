@@ -9,6 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="handrawn-spaceship.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="handrawn-spaceship.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Images\handrawn-spaceship.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

@@ -10,27 +10,32 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ClientMCR
 {
     /// <summary>
-    /// Interaction logic for SearchWindow.xaml
+    /// Interaction logic for SearchPage.xaml
     /// </summary>
-    public partial class SearchWindow : Window
+    public partial class CompanySearchPage : Page
     {
-
         //CompanyEntityClass SW_CES = null;
         CompanyEntityClass SW_CES;
-        public SearchWindow(CompanyEntityClass CCES)
+        Frame frame;
+
+
+        public CompanySearchPage(CompanyEntityClass CCES, Frame mainframe)
         {
             InitializeComponent();
-            
+
+            frame = mainframe;
+
             SW_CES = CCES;
             CompanyIDBox.Text = "Not Required";
         }
 
-        private void CompanyCustomerSearch(object sender, RoutedEventArgs e)
+        private void CompanyContactSearch(object sender, RoutedEventArgs e)
         {
             //sudo code * if search results return nothing Do this
 
@@ -63,9 +68,11 @@ namespace ClientMCR
             SW_CES.SetCompanyPhoneNumberField(CompanyPhoneNumberBox.Text);
             SW_CES.SeteMailAddress(CompanyeMailBox.Text);
 
-            AddCompanyEntity newAddCompanyEntityForm = new AddCompanyEntity(SW_CES); //create your new form.
-            newAddCompanyEntityForm.Show(); //show the new form.
-            this.Close();
+            //AddCompanyEntityPage newAddCompanyEntityForm = new AddCompanyEntityPage(SW_CES); //create your new form.
+            //newAddCompanyEntityForm.Show(); //show the new form.
+            frame.Content = new AddCompanyEntityPage(SW_CES, frame); //Content = new 
+            //this.Close();
         }
     }
 }
+
