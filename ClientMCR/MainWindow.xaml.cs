@@ -51,11 +51,7 @@ namespace ClientMCR
         //    //NavigationService CCS = new NavigationService(CompanyCustomerSearch);
         //    //Uri uri = new Uri("CompanyCustomerSearch.xaml", UriKind.Relative);
         //    //NavigationService.Navigate(uri);
-
         //    //CompanyCustomerSearch page = new CompanyCustomerSearch();
-
-
-
         //}
     }
 }

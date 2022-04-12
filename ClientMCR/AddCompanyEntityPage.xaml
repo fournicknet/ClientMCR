@@ -38,6 +38,7 @@
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="Company Name   " Grid.Column="0" Grid.Row="0" Background="#C8D1F4"  />
                     <TextBox x:Name="CompanyNameBox" Text="" Grid.Column="1" Grid.Row="0" />
@@ -47,10 +48,12 @@
                     <TextBox x:Name="CompanyIDBox" Text="" Grid.Column="1" Grid.Row="2" />
                     <TextBlock Text="Phone #" Grid.Column="0" Grid.Row="3" Background="#C8D1F4" />
                     <TextBox x:Name="CompanyPhoneNumberBox" Text="" Grid.Column="1" Grid.Row="3"/>
-                    <TextBlock Text="eMail" Grid.Column="0" Grid.Row="5" Background="#C8D1F4" />
-                    <TextBox x:Name="CompanyeMailBox" Text="" Grid.Column="1" Grid.Row="5"/>
-                    <TextBlock Text="Type of Business" Grid.Column="0" Grid.Row="6" Background="#C8D1F4" />
-                    <TextBox x:Name="CompanyTypeofBusiness" Text="" Grid.Column="1" Grid.Row="6"/>
+                    <TextBlock Text="Phone Extension" Grid.Column="0" Grid.Row="4" Background="#C8D1F4" />
+                    <TextBox x:Name="CompanyPhoneNumberExtensionBox" Text="" Grid.Column="1" Grid.Row="4"/>
+                    <TextBlock Text="eMail" Grid.Column="0" Grid.Row="6" Background="#C8D1F4" />
+                    <TextBox x:Name="CompanyeMailBox" Text="" Grid.Column="1" Grid.Row="6"/>
+                    <TextBlock Text="Type of Business" Grid.Column="0" Grid.Row="7" Background="#C8D1F4" />
+                    <TextBox x:Name="CompanyTypeofBusiness" Text="" Grid.Column="1" Grid.Row="7"/>
                 </Grid>
                 <TextBlock x:Name="NumberOfRecords" TextWrapping="Wrap" Text=""/>
             </StackPanel>
@@ -75,9 +78,10 @@
                         <TextBlock x:Name="EntityID2" Text="Entity ID   " Grid.Column="0" Grid.Row="1" Background="#C8D1F4"  />
                         <TextBlock x:Name="CompanyID2" Text="Company ID   " Grid.Column="0" Grid.Row="2" Background="#C8D1F4"  />
                         <TextBlock x:Name="PhoneNumber2" Text="Phone #" Grid.Column="0" Grid.Row="3" Background="#C8D1F4" />
-                        <TextBlock x:Name="eMail2" Text="eMail" Grid.Column="0" Grid.Row="4" Background="#C8D1F4" />
-                        <TextBlock x:Name="TypeofBusiness2" Text="Type of Business" Grid.Column="0" Grid.Row="5" Background="#C8D1F4" />
-                        <TextBlock x:Name="DataSaved" HorizontalAlignment="Center" Text="" Grid.Column="0" Grid.Row="6" Background="#C8D1F4" />
+                        <TextBlock x:Name="PhoneNumberExtension2" Text="Phone Extension" Grid.Column="0" Grid.Row="4" Background="#C8D1F4" />
+                        <TextBlock x:Name="eMail2" Text="eMail" Grid.Column="0" Grid.Row="5" Background="#C8D1F4" />
+                        <TextBlock x:Name="TypeofBusiness2" Text="Type of Business" Grid.Column="0" Grid.Row="6" Background="#C8D1F4" />
+                        <TextBlock x:Name="DataSaved" HorizontalAlignment="Center" Text="" Grid.Column="0" Grid.Row="7" Background="#C8D1F4" />
                     </Grid>
                 </Border>
             </StackPanel>

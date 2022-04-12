@@ -101,6 +101,7 @@ namespace ClientMCR
                     //EntityID2.Text = EntityID.Text;
 
                     ContactPhoneNumber2.Text = ContactEC.GetContactPhoneNumberField();
+                    ContactPhoneNumberExtension2.Text = 
                     ContacteMail2.Text = ContactEC.GeteMailAddress();
                     DataSaved.Text = "Data Was Saved";
                     //We now clear the form since the data was saved and prepair for next use

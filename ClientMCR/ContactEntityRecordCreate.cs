@@ -137,7 +137,8 @@ namespace ClientMCR
                     outputFile.WriteLine(ContactEC.GetContactNameField());
                     outputFile.WriteLine(stringNewDirectoryToCreate);//try/catch not completed for int to string conversion
                     outputFile.WriteLine(ContactEC.GetCompanyEntityIDFieldString());
-                    outputFile.WriteLine(ContactEC.GeteMailAddress());//variable should be an int and not a string inside SW_CES
+                    outputFile.WriteLine(ContactEC.GetContactPhoneNumberField());//variable should be an int and not a string inside SW_CES
+                    outputFile.WriteLine(ContactEC.GetContactPhoneNumberExtensionField());
                     outputFile.WriteLine(ContactEC.GeteMailAddress());//so.... ; break strings and leave it as null or change it to null
                     outputFile.WriteLine(ContactEC.GetAddressLine1());
                     outputFile.WriteLine(ContactEC.GetAddressLine2());

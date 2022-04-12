@@ -133,6 +133,7 @@ namespace ClientMCR
                     outputFile.WriteLine(stringNewDirectoryToCreate);//try/catch not completed for int to string conversion
                     outputFile.WriteLine(SW_CES.GetCompanyIDField());
                     outputFile.WriteLine(SW_CES.GetCompanyPhoneNumberField());//variable should be an int and not a string inside SW_CES
+                    outputFile.WriteLine(SW_CES.GetCompanyPhoneExtensionField());
                     outputFile.WriteLine(SW_CES.GeteMailAddress());//so.... ; break strings and leave it as null or change it to null
                     outputFile.WriteLine(SW_CES.GetTypeofBusiness());//need to create unit testing
                     outputFile.WriteLine(SW_CES.GetAddressLine1());

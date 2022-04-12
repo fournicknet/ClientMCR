@@ -113,6 +113,7 @@ namespace ClientMCR
                     EntityID2.Text = EntityID.Text;
                     CompanyID2.Text = CompanyIDBox.Text;
                     PhoneNumber2.Text = CompanyPhoneNumberBox.Text;
+                    PhoneNumberExtension2.Text = CompanyPhoneNumberExtensionBox.Text;
                     eMail2.Text = CompanyeMailBox.Text;
                     TypeofBusiness2.Text = CompanyTypeofBusiness.Text;
                     DataSaved.Text = "Data Was Saved";
@@ -151,6 +152,7 @@ namespace ClientMCR
             //EntityID field was already set when it was assigned
             ADE_CCES.SetCompanyIDField(CompanyIDBox.Text);
             ADE_CCES.SetCompanyPhoneNumberField(CompanyPhoneNumberBox.Text);
+            ADE_CCES.SetCompanyPhoneExtension(CompanyPhoneNumberExtensionBox.Text);
             ADE_CCES.SeteMailAddress(CompanyeMailBox.Text);
             ADE_CCES.SetTypeofBusiness(CompanyTypeofBusiness.Text);
             ADE_CCES.SetAddressLine1(AddressLine1Box.Text);
@@ -165,6 +167,7 @@ namespace ClientMCR
             CompanyNameBox.Text = "";
             CompanyIDBox.Text = "";
             CompanyPhoneNumberBox.Text = "";
+            CompanyPhoneNumberExtensionBox.Text = "";
             CompanyeMailBox.Text = "";
             CompanyTypeofBusiness.Text = "";
             AddressLine1Box.Text = "";
@@ -180,6 +183,7 @@ namespace ClientMCR
             EntityID2.Text = "";
             CompanyID2.Text = "";
             PhoneNumber2.Text = "";
+            PhoneNumberExtension2.Text = "";
             eMail2.Text = "";
             TypeofBusiness2.Text = "";
             DataSaved.Text = "";

@@ -47,6 +47,8 @@
                     <TextBox x:Name="ContactIDBox" Text="" Grid.Column="1" Grid.Row="2" />
                     <TextBlock Text="Phone #" Grid.Column="0" Grid.Row="3" Background="#C8D1F4" />
                     <TextBox x:Name="ContactPhoneNumberBox" Text="" Grid.Column="1" Grid.Row="3"/>
+                    <TextBlock Text="Phone # Extension" Grid.Column="0" Grid.Row="4" Background="#C8D1F4" />
+                    <TextBox x:Name="ContactPhoneNumberExtensionBox" Text="" Grid.Column="1" Grid.Row="4"/>
                     <TextBlock Text="eMail" Grid.Column="0" Grid.Row="5" Background="#C8D1F4" />
                     <TextBox x:Name="ContacteMailBox" Text="" Grid.Column="1" Grid.Row="5"/>
                 </Grid>
@@ -75,8 +77,9 @@
                         <TextBlock x:Name="EntityID2" Text="Entity ID   " Grid.Column="0" Grid.Row="1" Background="#C8D1F4"  />
                         <TextBlock x:Name="CompanyID2" Text="Company ID   " Grid.Column="0" Grid.Row="2" Background="#C8D1F4"  />
                         <TextBlock x:Name="PhoneNumber2" Text="Phone #" Grid.Column="0" Grid.Row="3" Background="#C8D1F4" />
-                        <TextBlock x:Name="eMail2" Text="eMail" Grid.Column="0" Grid.Row="4" Background="#C8D1F4" />
-                        <TextBlock x:Name="TypeofBusiness2" Text="Type of Business" Grid.Column="0" Grid.Row="5" Background="#C8D1F4" />
+                        <TextBlock x:Name="PhoneNumberExtension2" Text="Phone #" Grid.Column="0" Grid.Row="4" Background="#C8D1F4" />
+                        <TextBlock x:Name="eMail2" Text="eMail" Grid.Column="0" Grid.Row="5" Background="#C8D1F4" />
+                        <TextBlock x:Name="TypeofBusiness2" Text="Type of Business" Grid.Column="0" Grid.Row="6" Background="#C8D1F4" />
 
 
                     </Grid>
@@ -133,8 +136,9 @@
                         <TextBlock x:Name="ContactEntityID2" Text="Contact Entity ID   " Grid.Column="0" Grid.Row="1" Background="#C8D1F4"  />
                         <TextBlock x:Name="ContactID2" Text="Contact ID   " Grid.Column="0" Grid.Row="2" Background="#C8D1F4"  />
                         <TextBlock x:Name="ContactPhoneNumber2" Text="Phone #" Grid.Column="0" Grid.Row="3" Background="#C8D1F4" />
-                        <TextBlock x:Name="ContacteMail2" Text="eMail" Grid.Column="0" Grid.Row="4" Background="#C8D1F4" />
-                        <TextBlock x:Name="DataSaved" HorizontalAlignment="Center" Text="" Grid.Column="0" Grid.Row="5" Background="#C8D1F4" />
+                        <TextBlock x:Name="ContactPhoneNumberExtension2" Text="Phone #" Grid.Column="0" Grid.Row="4" Background="#C8D1F4" />
+                        <TextBlock x:Name="ContacteMail2" Text="eMail" Grid.Column="0" Grid.Row="5" Background="#C8D1F4" />
+                        <TextBlock x:Name="DataSaved" HorizontalAlignment="Center" Text="" Grid.Column="0" Grid.Row="6" Background="#C8D1F4" />
                     </Grid>
                 </Border>
             </StackPanel>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ClientMCR"
         mc:Ignorable="d"
         WindowStartupLocation="Manual" Left="10" Top="10"
-        Title="" Height="500" Width="800" Background="#FF5B689D">
+        Title="" Height="700" Width="800" Background="#FF5B689D">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height ="1*"/>

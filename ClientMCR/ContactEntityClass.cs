@@ -13,7 +13,7 @@ namespace ClientMCR
         string ContactNameField = "null";
 
         int EntityIDField, CompanyEntityID;
-        string ContactIDField = "null", PhoneNumberField = "null", eMailAddress = "null",
+        string ContactIDField = "null", PhoneNumberField = "null", PhoneNumberExtensionField = "null", eMailAddress = "null",
             AddressLine1 = "null", AddressLine2 = "null", AddressCity = "null", AddressState = "null", AddressZipCode = "null";
 
         public void SetContactNameField(string StringContactNameField)
@@ -90,6 +90,16 @@ namespace ClientMCR
         public string GetContactPhoneNumberField()
         {
             return PhoneNumberField;
+        }
+
+        public void SetContactPhoneNumberExtension(string StringContactPhoneNumberExtensionField)
+        {
+            PhoneNumberExtensionField = StringContactPhoneNumberExtensionField;
+        }
+
+        public string GetContactPhoneNumberExtensionField()
+        {
+            return PhoneNumberExtensionField;
         }
 
         public void SeteMailAddress(string StringeMailAddress)
