@@ -39,6 +39,7 @@ namespace ClientMCR
                     comSeaLisData.SetCompanyIDField(sr.ReadLine());
                     comSeaLisData.SetCompanyPhoneNumberField(sr.ReadLine());
                     comSeaLisData.SeteMailAddress(sr.ReadLine());
+                    sr.Close();
                     //we now add it to our list
                     rawData.Add(comSeaLisData);
                 }

@@ -60,7 +60,8 @@ namespace ClientMCR
                 int companyCount = 0;
 
                 
-                
+                //the returnedCompanies is a list of companies found in the search returned to us
+                //we are going through each company returned to us and making a row and a button and adding it.
                 foreach (CompanySearchListData company in returnedCompanies)
                 {
 
@@ -73,14 +74,21 @@ namespace ClientMCR
                             Height = height
                     });
 
-                    Button btn1 = new Button();
+                    ButtonModified btn1 = new ButtonModified();
                     btn1.Content = company.GetCompanyNameField();
+                    btn1.SetEntityIDField(company.GetEntityIDField());
                     btn1.SetValue(Grid.RowProperty, companyCount);
                     btn1.SetValue(Grid.ColumnProperty, 0);
-                    SearchWindowGrid.Children.Add(btn1);
-                    
+                    //the following code below is a lambda expression
+                    btn1.Click += (source, e) =>
+                    {
+                        CompanyEntityRecordRetrieve comEntRecRet = new CompanyEntityRecordRetrieve();
+                        SW_CES = comEntRecRet.ComEntRecRet(btn1.GetEntityIDField());
 
-                    
+                        frame.Content = new ContactSearchByCompanyPage(SW_CES, frame);
+                        
+                    };
+                    SearchWindowGrid.Children.Add(btn1);
                 }
             }
 

@@ -26,6 +26,10 @@ namespace ClientMCR
             return ContactNameField;
         }
 
+        public void SetEntityIDFieldString(string StringContactIDField)
+        {
+            int.TryParse(StringContactIDField, out EntityIDField);
+        }
         public void SetEntityIDField(int IntContactIDField)
         {
             EntityIDField = IntContactIDField;
