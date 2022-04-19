@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:ClientMCR"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="800"
-      Title="SearchPage" Background="#FF5B689D">
+      Title="SearchPage" >
+    <!--Background="#FF5B689D"-->
 
     <Grid>
         <Grid.RowDefinitions>
@@ -181,10 +182,10 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="1*"/>
                                 </Grid.RowDefinitions>
-                                <TextBlock Text="Company Name" Grid.Column="0" Grid.Row="0" Background="#C8D1F4" />
-                                <TextBlock Text="Company ID" Grid.Column="1" Grid.Row="0" Background="#C8D1F4" />
-                                <TextBlock Text="Company Phone #" Grid.Column="2" Grid.Row="0" Background="#C8D1F4" />
-                                <TextBlock Text="Company eMail" Grid.Column="3" Grid.Row="0" Background="#C8D1F4" />
+                                <TextBlock x:Name="Company_Name" Text="Company Name" Grid.Column="0" Grid.Row="0" Background="#C8D1F4" />
+                                <TextBlock x:Name="Company_ID" Text="Company ID" Grid.Column="1" Grid.Row="0" Background="#C8D1F4" />
+                                <TextBlock Text="Company Phone #" Grid.Column="2" Grid.Row="0" Background="#C8D1F4" AllowDrop="True"/>
+                                <TextBlock Text="Company eMail" Grid.Column="3" Grid.Row="0" Background="#C8D1F4" AllowDrop="True"/>
                             </Grid>
                         </Border>
                     </StackPanel>

@@ -6,7 +6,9 @@
       xmlns:local="clr-namespace:ClientMCR"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ContactSearchPage" Background="#FF5B689D">
+      Title="ContactSearchPage" >
+    <!--Background="#FF5B689D"-->
+    
 
     <Grid>
         <Grid.RowDefinitions>

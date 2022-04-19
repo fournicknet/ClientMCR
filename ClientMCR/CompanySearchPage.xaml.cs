@@ -123,7 +123,7 @@ namespace ClientMCR
             SW_CES.SetCompanyPhoneNumberField(CompanyPhoneNumberBox.Text);
             SW_CES.SetCompanyPhoneExtension(CompanyPhoneExtensionBox.Text);
             SW_CES.SeteMailAddress(CompanyeMailBox.Text);
-
+            SW_CES.SetAddCompanyEntity(true);
             //AddCompanyEntityPage newAddCompanyEntityForm = new AddCompanyEntityPage(SW_CES); //create your new form.
             //newAddCompanyEntityForm.Show(); //show the new form.
             frame.Content = new AddCompanyEntityPage(SW_CES, frame); //Content = new 
@@ -134,12 +134,13 @@ namespace ClientMCR
         {
             frame.Content = new ContactSearchPage(frame);
         }
+    }
 
         //We should format for everybody or not at all - because it might force formatting for somebody who does not need it
         //private void CompanyPhoneNumberBox_TextChanged(object sender, TextChangedEventArgs e)
         //{
         //    CompanyPhoneNumberBox.Text = PhoneNumberFormatter.PhoneNumberFormatter(CompanyPhoneNumberBox.Text);
         //}
-    }
+    
 }
 

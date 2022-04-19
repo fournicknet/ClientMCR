@@ -20,6 +20,8 @@ namespace ClientMCR
     /// </summary>
     public partial class MainWindow : Window
     {
+        int countByte =0;
+        byte[] aByteArray = {0,0,0,0,0};
         public MainWindow()
         {
             InitializeComponent();
@@ -36,7 +38,35 @@ namespace ClientMCR
             Main.Content = new CompanySearchPage(CEC, Main);
             //SearchWindow sw = new SearchWindow(CEC);
             //this.Content = sw;
+            //BrushConverter bc = new BrushConverter();
+            //Brush brush = (Brush)bc.ConvertFromString(BackgoundColor.GetHexColorKellyGreen());
+            //brush.Freeze();
+            //MainStackPanel.Background = brush;
 
+            //MainStackPanel.Background = new SolidColorBrush(Color.FromArgb(BackgoundColor.GetHexColorKellyGreen()));
+            BackgoundColor backColor = new BackgoundColor();
+            List<byte> aByteList = backColor.GetTestColor();
+            foreach (byte aByte in aByteList)
+            {
+                
+                aByteArray[countByte] =aByte;
+                countByte++;
+            }
+            //the alpha is in the last two decmal places of the hex value so it goes in the alpha
+            Color color = new Color();
+            color.A = aByteArray[3];
+            color.R = aByteArray[0];
+            color.G = aByteArray[1];
+            color.B = aByteArray[2];
+
+
+
+            MainStackPanel.Background = new SolidColorBrush(color);
+                
+
+
+            //MainWindow mw = (MainWindow)Application.Current.MainWindow;
+            //mw.Background = brush; 
         }
 
         //private void CompanyCustomerSearch(object sender, RoutedEventArgs e)

@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:ClientMCR"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
-      Title="AddContactEntityToCompanyPage" Background="#FF5B689D">
+      Title="AddContactEntityToCompanyPage">
+    <!--Background="#FF5B689D"-->
 
     <Border BorderThickness="20, 20, 20, 20">
         <Grid>

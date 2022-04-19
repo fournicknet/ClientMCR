@@ -81,26 +81,31 @@ namespace ClientMCR
 
         private void AddCompanyEntityButton(object sender, RoutedEventArgs e)
         {
-            // Not developed yet.
-            throw new NotImplementedException();
+            SW_CES.SetAddCompanyEntity(true);
+            frame.Content = new AddCompanyEntityPage(SW_CES, frame);
         }
 
         private void SearchContact(object sender, RoutedEventArgs e)
         {
-            // Not developed yet.
-            throw new NotImplementedException();
+            frame.Content = new ContactSearchPage(frame);
         }
 
         private void AddContactEntityButton(object sender, RoutedEventArgs e)
         {
-            // Not developed yet.
-            throw new NotImplementedException();
+            frame.Content = new AddContactEntityToCompanyPage(SW_CES, frame);
         }
 
         private void SearchCompany(object sender, RoutedEventArgs e)
         {
-            // Not developed yet.
-            throw new NotImplementedException();
+            frame.Content = new CompanySearchPage(SW_CES, frame);
+        }
+
+        private void EditCompany(object sender, RoutedEventArgs e)
+        {
+            //// Not developed yet.
+            //throw new NotImplementedException();
+            SW_CES.SetAddCompanyEntity(true);
+            frame.Content = new AddCompanyEntityPage(SW_CES, frame);
         }
     }
 }

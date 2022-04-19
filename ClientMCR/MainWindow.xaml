@@ -6,36 +6,41 @@
         xmlns:local="clr-namespace:ClientMCR"
         mc:Ignorable="d"
         WindowStartupLocation="Manual" Left="10" Top="10"
-        Title="" Height="768" Width="1024" Background="#FF5B689D">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height ="1*"/>
-            <RowDefinition Height ="4*"/>
-            <RowDefinition Height ="16*"/>
-        </Grid.RowDefinitions>
-
-        <!--Header-->
-        <StackPanel>
-            <Menu>
-                <MenuItem Header="File">
-                    <MenuItem>Aname</MenuItem>
-                </MenuItem>
-            </Menu>
-        </StackPanel>
+        Title="" Height="768" Width="1024">
+    <!--Background="#FF5B689D"-->
+    <StackPanel >
         
-        <Border Grid.Row="1" Grid.ColumnSpan="2" Background="#C8D1F4">
-            <!--The header needs to contain an image and text block to be displayed-->
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Image Source="/handrawn-spaceship.jpg" Height="80" Margin="5"/>
-                <TextBlock Text="Manage Customer Relations" FontSize="40"
-                            VerticalAlignment="Center"/>
+    
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height ="1*"/>
+                <RowDefinition Height ="4*"/>
+                <RowDefinition Height ="16*"/>
+            </Grid.RowDefinitions>
 
+            <!--Header-->
+            <StackPanel>
+                <Menu>
+                    <MenuItem Header="File">
+                        <MenuItem>Aname</MenuItem>
+                    </MenuItem>
+                </Menu>
             </StackPanel>
-        </Border>
-        <StackPanel Grid.Row="2">
-            <Frame x:Name="Main"/>
-        </StackPanel>
         
-        <!--code behind to access Main will be "Main.Content = new Page1();"-->
-    </Grid>
+            <Border Grid.Row="1" Grid.ColumnSpan="2" Background="#C8D1F4">
+                <!--The header needs to contain an image and text block to be displayed-->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Image Source="/handrawn-spaceship.jpg" Height="80" Margin="5"/>
+                    <TextBlock Text="Manage Customer Relations" FontSize="40"
+                                VerticalAlignment="Center"/>
+
+                </StackPanel>
+            </Border>
+            <StackPanel Grid.Row="2" x:Name="MainStackPanel">
+                <Frame x:Name="Main"/>
+            </StackPanel>
+        
+            <!--code behind to access Main will be "Main.Content = new Page1();"-->
+        </Grid>
+    </StackPanel>
 </Window>

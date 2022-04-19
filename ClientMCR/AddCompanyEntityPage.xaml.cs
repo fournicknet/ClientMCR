@@ -45,12 +45,51 @@ namespace ClientMCR
                 CompanyIDBox.Text = ADE_CCES.GetCompanyIDField();
                 CompanyPhoneNumberBox.Text = ADE_CCES.GetCompanyPhoneNumberField();
                 CompanyeMailBox.Text = ADE_CCES.GeteMailAddress();
+
+                SetMaxTextLengthForFields();
+
+                if (ADE_CCES.GetAddCompanyEntity())
+                {
+                    //ADE_CCES.SetAddCompanyEntity(false);
+
+                }
+
+                else if (ADE_CCES.GetEditCompanyEntity())
+                {
+                    
+                    //We need to load data from "database"
+                    CompanyEntityRecordRetrieve comEntRecRet = new CompanyEntityRecordRetrieve();
+                    CompanyEntityClass newADE_CCES = comEntRecRet.ComEntRecRet(ADE_CCES.GetEntityIDField());
+                    ADE_CCES = newADE_CCES;
+
+                    ADE_CCES.SetEditCompanyEntity(true);
+
+                    SetUIFieldsToCompanyEntityInfo();
+
+                }
             }
+
+            
 
             if (ADE_CCES == null)
             {
                 CompanyNameBox.Text = "was null ref - look at how the class is created and passed between wpf pages";
             }
+        }
+        private void SetUIFieldsToCompanyEntityInfo()
+        {
+            CompanyNameBox.Text = ADE_CCES.GetCompanyNameField();
+            //EntityID field was already set when it was assigned
+            CompanyIDBox.Text = ADE_CCES.GetCompanyIDField();
+            CompanyPhoneNumberBox.Text = ADE_CCES.GetCompanyPhoneNumberField();
+            CompanyPhoneNumberExtensionBox.Text = ADE_CCES.GetCompanyPhoneExtensionField();
+            CompanyeMailBox.Text = ADE_CCES.GeteMailAddress();
+            CompanyTypeofBusiness.Text = ADE_CCES.GetTypeofBusiness();
+            AddressLine1Box.Text = ADE_CCES.GetAddressLine1();
+            AddressLine2Box.Text = ADE_CCES.GetAddressLine2();
+            AddressCity.Text = ADE_CCES.GetAddressCity();
+            AddressState.Text = ADE_CCES.GetAddressState();
+            AddressZipCode.Text = ADE_CCES.GetAddressZipCode();
         }
 
         private void SetMaxTextLengthForFields()

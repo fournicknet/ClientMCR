@@ -12,6 +12,7 @@ namespace ClientMCR
         //EntityID is what "we" assign to the companies our customers will be working with to work with data
         string CompanyNameField = "null";
         int EntityIDField;
+        bool AddCompanyEntity = false, EditCompanyEntity = false;
         string CompanyIDField = "null", PhoneNumberField = "null", PhoneExtention = "null", eMailAddress = "null", TypeofBusiness = "null",
             AddressLine1 = "null", AddressLine2 = "null", AddressCity = "null", AddressState = "null", AddressZipCode = "null";
 
@@ -48,6 +49,25 @@ namespace ClientMCR
                 //better method for exeption handling maybe needed here
                 return string.Empty;
             }
+        }
+
+        public bool GetAddCompanyEntity()
+        {
+            return AddCompanyEntity;
+        }
+
+        public void SetAddCompanyEntity(bool valueToSet)
+        {
+            AddCompanyEntity = valueToSet;
+        }
+        public bool GetEditCompanyEntity()
+        {
+            return EditCompanyEntity;
+        }
+
+        public void SetEditCompanyEntity(bool valueToSet)
+        {
+            EditCompanyEntity = valueToSet;
         }
 
         public void SetCompanyIDField(string StringCompanyIDField)
