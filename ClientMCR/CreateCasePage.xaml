@@ -1,4 +1,4 @@
-﻿<Page x:Class="ClientMCR.CaseSearchByContactPage"
+﻿<Page x:Class="ClientMCR.CreateCasePage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,27 +6,16 @@
       xmlns:local="clr-namespace:ClientMCR"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="CaseSearchByContactPage">
-
+      Title="CreateCasePage">
 
     <Grid>
         <Grid.RowDefinitions>
             <!--<RowDefinition Height ="1*"/>-->
+            <RowDefinition Height ="3*"/>
             <RowDefinition Height ="4*"/>
         </Grid.RowDefinitions>
 
-        <!--Header-->
-        <!--<Border Grid.ColumnSpan="2" Background="#C8D1F4">
-            -->
-        <!--The header needs to contain an image and text block to be displayed-->
-        <!--
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Image Source="/Images/handrawn-spaceship.jpg" Height="80" Margin="5"/>
-                <TextBlock Text="Manage Customer Relations" FontSize="40"
-                            VerticalAlignment="Center"/>
-
-            </StackPanel>
-        </Border>-->
+        
 
         <!--Navigation-->
         <Grid Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" >
@@ -75,15 +64,15 @@
                                     </Grid.ColumnDefinitions>
 
                                     <TextBlock Text="Contact Name   " Grid.Column="0" Grid.Row="0" Background="#C8D1F4"  />
-                                    <TextBox x:Name="ContactNameBox" Text="" Grid.Column="1" Grid.Row="0" />
+                                    <TextBlock x:Name="ContactNameBox" Text="" Grid.Column="1" Grid.Row="0" Background="#C8D1F4" />
                                     <TextBlock Text="Contact ID   " Grid.Column="0" Grid.Row="1" Background="#C8D1F4"  />
-                                    <TextBox x:Name="ContactIDBox" Text="" Grid.Column="1" Grid.Row="1" />
+                                    <TextBlock x:Name="ContactIDBox" Text="" Grid.Column="1" Grid.Row="1" Background="#C8D1F4" />
                                     <TextBlock Text="Phone #" Grid.Column="0" Grid.Row="2" Background="#C8D1F4" />
-                                    <TextBox x:Name="ContactPhoneNumberBox" Text="" Grid.Column="1" Grid.Row="2" />
+                                    <TextBlock x:Name="ContactPhoneNumberBox" Text="" Grid.Column="1" Grid.Row="2" Background="#C8D1F4" />
                                     <TextBlock Text="Phone extension" Grid.Column="0" Grid.Row="3" Background="#C8D1F4" />
-                                    <TextBox x:Name="ContactPhoneExtensionBox" Text="" Grid.Column="1" Grid.Row="3" />
+                                    <TextBlock x:Name="ContactPhoneExtensionBox" Text="" Grid.Column="1" Grid.Row="3" Background="#C8D1F4" />
                                     <TextBlock Text="eMail" Grid.Column="0" Grid.Row="4" Background="#C8D1F4" />
-                                    <TextBox x:Name="ContacteMailBox" Text="" Grid.Column="1" Grid.Row="4"/>
+                                    <TextBlock x:Name="ContacteMailBox" Text="" Grid.Column="1" Grid.Row="4" Background="#C8D1F4"/>
                                 </Grid>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Grid.Row="3" >
@@ -150,15 +139,15 @@
                                         <ColumnDefinition Width="1*"/>
                                     </Grid.ColumnDefinitions>
                                     <!--This line is commented out because it belongs on another form/page - Search by customer info should be seperate from company search info-->
-                                    <Button Content="Add a New Company" Grid.Column="1" Grid.Row="0" Click="AddCompanyEntityButton"  />
-                                    <Button Content="Search for Contact" Grid.Column="3" Grid.Row="0" Click="SearchContact"/>
-                                    <Button Content="Edit Contact" Grid.Column="1" Grid.Row="2" Click="EditContact"/>
-                                    <Button Content="Search for Company" Grid.Column="3" Grid.Row="2" Click="SearchCompany" />
-                                    <Button Content="empty" Grid.Column="3" Grid.Row="3" IsEnabled="False" Visibility ="Hidden"/>
+                                    <!--<Button Content="Add a New Company" Grid.Column="1" Grid.Row="0" Click="AddCompanyEntityButton"  />-->
+                                    <!--<Button Content="Search for Contact" Grid.Column="3" Grid.Row="0" Click="SearchContact"/>-->
+                                    <!--<Button Content="Edit Contact" Grid.Column="1" Grid.Row="2" Click="EditContact"/>-->
+                                    <!--<Button Content="Search for Company" Grid.Column="3" Grid.Row="2" Click="SearchCompany" />-->
+                                    <!--<Button Content="empty" Grid.Column="3" Grid.Row="3" IsEnabled="False" Visibility ="Hidden"/>-->
                                     <!--<Button Content="Add Customer" Grid.Column="3" Grid.Row="0"/>-->
-                                    <Button Content="Add a New Contact" Grid.Column="1" Grid.Row="4" Click="AddContactEntityButton" />
-                                    <Button Content="empty" Grid.Column="3" Grid.Row="1" IsEnabled="False" Visibility ="Hidden"/>
-                                    <Button Content="Open New Ticket" Grid.Column="3" Grid.Row="4" Click="OpenNewTicket"/>
+                                    <!--<Button Content="Add a New Contact" Grid.Column="1" Grid.Row="4" Click="AddContactEntityButton" />-->
+                                    <!--<Button Content="empty" Grid.Column="3" Grid.Row="1" IsEnabled="False" Visibility ="Hidden"/>-->
+                                    <!--<Button Content="Open New Ticket" Grid.Column="3" Grid.Row="4" Click="OpenNewTicket"/>-->
                                 </Grid>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Grid.Row="8">
@@ -169,28 +158,83 @@
                     <!--MainSearchArea-->
 
                     <StackPanel Grid.Column="1" Grid.Row="0">
-                        <TextBlock Text="Case Search by Contact Found" FontSize="20" Grid.Column="1" Grid.Row="0" Margin="20, 20, 20, 0" Background="#C8D1F4" />
+                        <TextBlock Text="New Case" FontSize="20" Grid.Column="1" Grid.Row="0" Margin="20, 20, 20, 0" Background="#C8D1F4" />
                         <Border BorderThickness="20, 0, 20, 0">
 
                             <Grid x:Name="SearchWindowGrid" Background="#C8D1F4">
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="4*"/>
+                                    <ColumnDefinition Width="4*"/>
                                     <ColumnDefinition Width="1*"/>
-                                    <ColumnDefinition Width="1*"/>
-                                    <ColumnDefinition Width="1*"/>
-                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                    <ColumnDefinition Width="4*"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
                                     <RowDefinition Height="1*"/>
                                     <RowDefinition Height="1*"/>
                                 </Grid.RowDefinitions>
                                 <TextBlock Text="Ticket Number" Grid.Column="0" Grid.Row="1"  HorizontalAlignment="Center" Background="#C8D1F4" />
                                 <TextBlock Text="Date Ticket Opened" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Background="#C8D1F4" />
-                                <TextBlock Text="Status" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" Background="#C8D1F4" />
-                                <TextBlock Text="Description" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" Background="#C8D1F4" />
+                                <TextBlock Text="Time Ticket Opened" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" Background="#C8D1F4" />
+                                <TextBlock Text="Status" Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" Background="#C8D1F4" />
+                                <!--<TextBlock Text="Description" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" Background="#C8D1F4" />-->
+
+                                <TextBlock x:Name="TicketNumber" Text="Ticket Number" Grid.Column="0" Grid.Row="2"  HorizontalAlignment="Center" Background="#C8D1F4" />
+                                <TextBlock x:Name="DateOpened" Text="Date Ticket Opened" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" Background="#C8D1F4" />
+                                <TextBlock x:Name="TimeOpened" Text="Time Ticket Opened" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" Background="#C8D1F4" />
+
+                                <Button Content="empty" Grid.Column="0" Grid.Row="3" IsEnabled="False" Visibility ="Hidden"/>
+
+                                <TextBlock x:Name="Subject1" Text="Subject 1" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" Background="#C8D1F4"/>
+                                <ListBox x:Name="Subject1ListBox" Grid.Column="1" Grid.Row="4" />
+
+                                <TextBlock x:Name="Subject3" Text="Subject 3" Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" Background="#C8D1F4"/>
+                                <ListBox x:Name="Subject3ListBox" Grid.Column="4" Grid.Row="4" />
+
+                                <Button Content="empty" Grid.Column="0" Grid.Row="5" IsEnabled="False" Visibility ="Hidden"/>
+
+                                <TextBlock x:Name="Subject2" Text="Subject 2" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" Background="#C8D1F4"/>
+                                <ListBox x:Name="Subject2ListBox" Grid.Column="1" Grid.Row="6" />
+
+                                <TextBlock x:Name="Subject4" Text="Subject 4" Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" Background="#C8D1F4"/>
+                                <ListBox x:Name="Subject4ListBox" Grid.Column="4" Grid.Row="6" />
+
                             </Grid>
                         </Border>
                     </StackPanel>
                 </Grid>
+            </StackPanel>
+            <!--Bottom Half of Screen-->
+            
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <StackPanel>
+                <Border BorderThickness="20, 20, 20, 0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Description of Incident" Grid.Column="0" Grid.Row="0"/>
+
+                        <TextBox x:Name="DescriptionBox" Grid.Column="0" Grid.Row="1"/>
+                        
+                        <Button Content="empty" Grid.Column="0" Grid.Row="2" IsEnabled="False" Visibility ="Hidden"/>
+
+                        <TextBlock Text="Notes" Grid.Column="0" Grid.Row="3" />
+
+                        <TextBox x:Name="NotesBox" Grid.Column="0" Grid.Row="4" MinLines="7" />
+                    </Grid>
+                </Border>
             </StackPanel>
         </Grid>
     </Grid>

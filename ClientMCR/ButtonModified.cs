@@ -17,7 +17,7 @@ namespace ClientMCR
 {
     public partial class ButtonModified : Button
     {
-        int EntityIDField;
+        int EntityIDField, ContactEntityIDField;
 
         public void SetEntityIDField(int IntCompanyIDField)
         {
@@ -41,5 +41,22 @@ namespace ClientMCR
                 return string.Empty;
             }
         }
+
+        public void SetContactEntityIDField(int IntContactEntityIDField)
+        {
+            ContactEntityIDField = IntContactEntityIDField;
+            //int.TryParse(StringCompanyIDField, out CompanyEntityID);
+        }
+
+        public int GetContactEntityIDField()
+        {
+            return ContactEntityIDField;
+        }
+
+        public string GetContactEntityIDFieldString()
+        {
+            return ContactEntityIDField.ToString();
+        }
+
     }
 }

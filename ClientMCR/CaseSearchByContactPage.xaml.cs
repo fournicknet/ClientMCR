@@ -21,11 +21,24 @@ namespace ClientMCR
     public partial class CaseSearchByContactPage : Page
     {
         Frame frame;
-        public CaseSearchByContactPage(Frame mainframe)
+        ContactEntityClass contact;
+        public CaseSearchByContactPage(ContactEntityClass ConES, Frame mainframe)
         {
             InitializeComponent();
 
             frame = mainframe;
+
+            contact = ConES;
+
+            SetUIFieldsToCompanyEntityInfo();
+        }
+        private void SetUIFieldsToCompanyEntityInfo()
+        {
+            ContactNameBox.Text = contact.GetContactNameField();
+            ContactIDBox.Text = contact.GetContactIDField();
+            ContactPhoneNumberBox.Text = contact.GetContactPhoneNumberField();
+            ContactPhoneExtensionBox.Text = contact.GetContactPhoneNumberExtensionField();
+            ContacteMailBox.Text = contact.GeteMailAddress();
         }
 
         private void AddCompanyEntityButton(object sender, RoutedEventArgs e)
@@ -61,6 +74,7 @@ namespace ClientMCR
         private void OpenNewTicket(object sender, RoutedEventArgs e)
         {
             // Not developed yet.
+            //frame.Content = new CompanySearchPage(frame);
             throw new NotImplementedException();
         }
     }

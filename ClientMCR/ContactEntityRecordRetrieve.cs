@@ -13,6 +13,32 @@ namespace ClientMCR
         static string datadocPath = @"C:\DataMCR";
         static string entityIDasSTring;
         static int entityID;
+        public static ContactEntityClass ConEntRecRet(int CompanyEntityID, int ContactEntityID)
+        {
+            ContactEntityClass contactDataToReturn = new ContactEntityClass();
+
+            try
+            {
+                StreamReader sr = new StreamReader(datadocPath + "\\" + CompanyEntityID.ToString() + "\\" + "contacts" + "\\" + ContactEntityID.ToString());
+                contactDataToReturn.SetContactNameField(sr.ReadLine());
+                contactDataToReturn.SetEntityIDFieldString(sr.ReadLine());
+                contactDataToReturn.SetCompanyEntityIDFieldString(sr.ReadLine());
+                contactDataToReturn.SetContactPhoneNumberField(sr.ReadLine());
+                contactDataToReturn.SetContactPhoneNumberExtension(sr.ReadLine());
+                contactDataToReturn.SeteMailAddress(sr.ReadLine());
+                contactDataToReturn.SetAddressLine1(sr.ReadLine());
+                contactDataToReturn.SetAddressLine2(sr.ReadLine());
+                contactDataToReturn.SetAddressCity(sr.ReadLine());
+                contactDataToReturn.SetAddressState(sr.ReadLine());
+                contactDataToReturn.SetAddressZipCode(sr.ReadLine());
+                sr.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return contactDataToReturn;
+        }
 
         public static List<ContactSearchListData> ConEntRecSea(int CompanyEntityID)
         {
@@ -85,26 +111,26 @@ namespace ClientMCR
                     }
                 }
 
-                //we now check if any of the strings match our collection of data
-                //foreach (CompanySearchListData data in rawData)
-                //{
-                //    if (data.GetCompanyNameField().Contains(CompanyName))
-                //    {
-                //        dataToReturn.Add(data);
+            }
+            catch (Exception ex)
+            {
 
-                //    }
-                //    else if (data.GetCompanyIDField() == CompanyID)
-                //    {
-                //        //first thing is we check if it was already added to our list by comparing entity id's
-                //        if (!dataToReturn.Contains(data))
-                //        {
-                //            dataToReturn.Add(data);
-                //        }
-                //        //CompareTwoLists(data, dataToReturn, CompanyName);
-                //    }
-
-                //    string dataPhoneNumber, userProvidedPhoneNumber;
-                //    dataPhoneNumber = data.GetCompanyPhoneNumberField();
+            }
+            //we now check if any of the strings match our collection of data
+            foreach (ContactSearchListData contact in rawContactData)
+            {
+                if(contact.GetContactNameField().Contains(ContactName))
+                {
+                    addContactToList(contactDataToReturn, contact);
+                }
+                else if (contact.GetContactIDField() == ContactID)
+                {
+                    //first thing is we check if it was already added to our list by comparing entity id's
+                    ifDoesNot(contactDataToReturn, contact);
+                }
+                //string contactPhoneNumber, userProvidedPhoneNumber;
+                //contactPhoneNumber = contact.GetContactPhoneNumberField();
+                //    code below would remove the leading 1 but since we are going international that won't work
                 //    dataPhoneNumber = dataPhoneNumber.Trim(stringToRemove);
                 //    userProvidedPhoneNumber = phoneNumber.Trim(stringToRemove);
                 //    if (dataPhoneNumber.Trim().StartsWith("1"))
@@ -116,37 +142,39 @@ namespace ClientMCR
                 //        userProvidedPhoneNumber = userProvidedPhoneNumber.TrimStart('1');
                 //    }
 
-                //    else if (dataPhoneNumber.Contains(userProvidedPhoneNumber))
-                //    {
-                //        if (!dataToReturn.Contains(data))
-                //        {
-                //            dataToReturn.Add(data);
-                //        }
+                else if (contact.GetContactPhoneNumberField().Contains(phoneNumber))
+                {
+                    ifDoesNot(contactDataToReturn, contact);
+                    //Commented out cause it can not remove data from a list being worked on
+                    //contactDataToReturn.Remove(data);
+                }
 
-                //        //dataToReturn.Add(data);
-                //        //Commented out cause it can not remove data from a list being worked on
-                //        //rawData.Remove(data);
-                //        //CompareTwoPhoneNumbers(data, dataToReturn, CompanyName);
-                //    }
-                //    else if (data.GeteMailAddress() == eMailAddress)
-                //    {
-                //        if (!dataToReturn.Contains(data))
-                //        {
-                //            dataToReturn.Add(data);
-                //        }
-                //    }
+                else if (contact.GetContactPhoneNumberExtensionField().Contains(phoneNumberExtension))
+                {
+                    ifDoesNot(contactDataToReturn, contact);
+                }
 
-                //}
-
+                else if (contact.GeteMailAddress() == eMailAddress)
+                {
+                    ifDoesNot(contactDataToReturn, contact);
+                }
 
             }
-            catch (Exception ex)
-            {
 
-            }
             return contactDataToReturn;
 
         }
 
+        public static void ifDoesNot(List<ContactSearchListData> contactDataToReturn, ContactSearchListData contact)
+        {
+            if(!contactDataToReturn.Contains(contact))
+            {
+                addContactToList(contactDataToReturn, contact);
+            }
+        }
+        public static void addContactToList(List<ContactSearchListData> contactDataToReturn, ContactSearchListData contact)
+        {
+            contactDataToReturn.Add(contact);
+        }
     }
 }

@@ -53,6 +53,10 @@ namespace ClientMCR
             }
         }
 
+        public void SetCompanyEntityIDFieldString(string StringCompanyIDField)
+        {
+            int.TryParse(StringCompanyIDField, out CompanyEntityID);
+        }
         public void SetCompanyEntityIDField(int IntCompanyIDField)
         {
             CompanyEntityID = IntCompanyIDField;

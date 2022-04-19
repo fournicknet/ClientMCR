@@ -23,6 +23,9 @@ namespace ClientMCR
         //CompanyEntityClass SW_CES;
         ContactEntityClass ConES;
         Frame frame;
+        List<ContactSearchListData> returnedContacts;
+        string rowValueString;
+
         public ContactSearchPage(Frame mainframe)
         {
             InitializeComponent();
@@ -57,51 +60,46 @@ namespace ClientMCR
 
             //WE NEED TO GET A LIST OF CONTACTS THAT MATCH OUR SEARCH SETTINGS
 
-
-            //// Not developed yet.
-            //throw new NotImplementedException();
-
             //if (SW_CES != null)
             //{
 
             //    SW_CES.SetCompanyNameField(CompanyNameBox.Text);
 
-            //    returnedCompanies = CompanyEntityRecordSearch.ComEntRecSea(CompanyNameBox.Text, CompanyIDBox.Text, CompanyPhoneNumberBox.Text, CompanyeMailBox.Text);
+            returnedContacts = ContactEntityRecordRetrieve.ConEntRecSea(ContactNameBox.Text, ContactIDBox.Text, ContactNameBox.Text, ContactPhoneNumberExtensionBox.Text, ContacteMailBox.Text);
+            //We set it to 1 since we are taking into account the title
+            int contactCount = 0;
+            //the returnedContacts is a list of contacts found in the search returned to us
+            //we are going through each contact returned to us and making a row and a button and adding it.
+            foreach (ContactSearchListData contact in returnedContacts)
+            {
 
-            //    int companyCount = 0;
+                contactCount++;
+                rowValueString = "row" + contactCount.ToString();
+                var height = GridLength.Auto;
+                height = new GridLength(1, GridUnitType.Star);
+                SearchWindowGrid.RowDefinitions.Add(new RowDefinition()
+                {
+                    Height = height
+                });
 
+                ButtonModified btn1 = new ButtonModified();
+                btn1.Content = contact.GetContactNameField();
+                btn1.SetEntityIDField(contact.GetCompanyEntityIDField());
+                btn1.SetContactEntityIDField(contact.GetEntityIDField());
+                btn1.SetValue(Grid.RowProperty, contactCount);
+                btn1.SetValue(Grid.ColumnProperty, 0);
+                //the following code below is a lambda expression
+                btn1.Click += (source, e) =>
+                {
+                    //ContactEntityRecordRetrieve.ConEntRecSea()
+                    //CompanyEntityRecordRetrieve comEntRecRet = new CompanyEntityRecordRetrieve();
+                    //SW_CES = comEntRecRet.ComEntRecRet(btn1.GetEntityIDField());
+                    ConES = ContactEntityRecordRetrieve.ConEntRecRet(btn1.GetEntityIDField(), btn1.GetContactEntityIDField());
+                    frame.Content = new CaseSearchByContactPage(ConES, frame);
 
-            //    //the returnedCompanies is a list of companies found in the search returned to us
-            //    //we are going through each company returned to us and making a row and a button and adding it.
-            //    foreach (CompanySearchListData company in returnedCompanies)
-            //    {
-
-            //        companyCount++;
-            //        rowValueString = "row" + companyCount.ToString();
-            //        var height = GridLength.Auto;
-            //        height = new GridLength(1, GridUnitType.Star);
-            //        SearchWindowGrid.RowDefinitions.Add(new RowDefinition()
-            //        {
-            //            Height = height
-            //        });
-
-            //        ButtonModified btn1 = new ButtonModified();
-            //        btn1.Content = company.GetCompanyNameField();
-            //        btn1.SetEntityIDField(company.GetEntityIDField());
-            //        btn1.SetValue(Grid.RowProperty, companyCount);
-            //        btn1.SetValue(Grid.ColumnProperty, 0);
-            //        //the following code below is a lambda expression
-            //        btn1.Click += (source, e) =>
-            //        {
-            //            CompanyEntityRecordRetrieve comEntRecRet = new CompanyEntityRecordRetrieve();
-            //            SW_CES = comEntRecRet.ComEntRecRet(btn1.GetEntityIDField());
-
-            //            frame.Content = new ContactSearchByCompanyPage(SW_CES, frame);
-
-            //        };
-            //        SearchWindowGrid.Children.Add(btn1);
-            //    }
-            //}
+                };
+                SearchWindowGrid.Children.Add(btn1);
+            }
         }
 
         private void CompanySearch(object sender, RoutedEventArgs e)
