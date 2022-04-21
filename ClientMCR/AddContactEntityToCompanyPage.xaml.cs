@@ -92,7 +92,7 @@ namespace ClientMCR
 
                 if (contactEntityID != -1 || contactEntityID != -2)
                 {
-                    ContactEC.SetEntityIDField(contactEntityID);
+                    ContactEC.SetContactEntityIDField(contactEntityID);
                     EntityID.Text = contactEntityID.ToString();
                     ContactEntityID2.Text = contactEntityID.ToString();
                     ContactID2.Text = ContactEC.GetContactIDField();
@@ -101,7 +101,7 @@ namespace ClientMCR
                     //EntityID2.Text = EntityID.Text;
 
                     ContactPhoneNumber2.Text = ContactEC.GetContactPhoneNumberField();
-                    ContactPhoneNumberExtension2.Text = 
+                    ContactPhoneNumberExtension2.Text = ContactEC.GetContactPhoneNumberExtensionField();
                     ContacteMail2.Text = ContactEC.GeteMailAddress();
                     DataSaved.Text = "Data Was Saved";
                     //We now clear the form since the data was saved and prepair for next use
@@ -139,12 +139,12 @@ namespace ClientMCR
         {
             ContactEC.SetContactNameField(ContactNameBox.Text);
 
-            ContactEC.SetCompanyEntityIDField(ADE_CCES.GetEntityIDField());
+            ContactEC.SetCompanyEntityIDField(ADE_CCES.GetCompanyEntityIDField());
 
             ContactEC.SetContactIDField(ContactIDBox.Text);
             ContactEC.SetContactPhoneNumberField(ContactPhoneNumberBox.Text);
+            ContactEC.SetContactPhoneNumberExtension(ContactEC.GetContactPhoneNumberExtensionField());
             ContactEC.SeteMailAddress(ContacteMailBox.Text);
-
             ContactEC.SetAddressLine1(AddressLine1Box.Text);
             ContactEC.SetAddressLine2(AddressLine2Box.Text);
             ContactEC.SetAddressCity(AddressCity.Text);
@@ -155,7 +155,7 @@ namespace ClientMCR
         private void SetCompanyTipFields()
         {
             CompanyName2.Text = ADE_CCES.GetCompanyNameField();
-            EntityID2.Text = ADE_CCES.GetEntityIDFieldString();
+            EntityID2.Text = ADE_CCES.GetCompanyEntityIDFieldString();
             CompanyID2.Text = ADE_CCES.GetCompanyIDField();
             PhoneNumber2.Text = ADE_CCES.GetCompanyPhoneNumberField();
             eMail2.Text = ADE_CCES.GeteMailAddress();
@@ -164,7 +164,7 @@ namespace ClientMCR
 
         private void SetCompanyEntityIDAssignment()
         {
-            int currentRecordInt = ADE_CCES.GetEntityIDField();
+            int currentRecordInt = ADE_CCES.GetCompanyEntityIDField();
             EntityID2.Text = currentRecordInt.ToString();
         }
 
@@ -174,6 +174,7 @@ namespace ClientMCR
             //EntityID
             ContactIDBox.Text = "";
             ContactPhoneNumberBox.Text = "";
+            ContactPhoneNumberExtensionBox.Text = "";
             ContacteMailBox.Text = "";
 
             AddressLine1Box.Text = "";

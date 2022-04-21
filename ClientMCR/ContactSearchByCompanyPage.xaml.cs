@@ -42,7 +42,7 @@ namespace ClientMCR
             CompanyeMailBox.Text = SW_CES.GeteMailAddress();
 
 
-            LoadGridWithContacts(SW_CES.GetEntityIDField());
+            LoadGridWithContacts(SW_CES.GetCompanyEntityIDField());
         }
 
         public void LoadGridWithContacts(int CompanyEntityID)
@@ -53,7 +53,7 @@ namespace ClientMCR
             {
 
                 contactCount++;
-                rowValueString = "row" + contactCount.ToString();
+                //rowValueString = "row" + contactCount.ToString();
                 var height = GridLength.Auto;
                 height = new GridLength(1, GridUnitType.Star);
                 SearchWindowGrid.RowDefinitions.Add(new RowDefinition()
@@ -63,16 +63,16 @@ namespace ClientMCR
 
                 ButtonModified btn1 = new ButtonModified();
                 btn1.Content = contact.GetContactNameField();
-                btn1.SetEntityIDField(contact.GetEntityIDField());
+                btn1.SetCompanyEntityIDField(contact.GetCompanyEntityIDField());
+                btn1.SetContactEntityIDField(contact.GetEntityIDField());
                 btn1.SetValue(Grid.RowProperty, contactCount);
                 btn1.SetValue(Grid.ColumnProperty, 0);
                 //the following code below is a lambda expression
                 btn1.Click += (source, e) =>
                 {
-                    CompanyEntityRecordRetrieve comEntRecRet = new CompanyEntityRecordRetrieve();
-                    SW_CES = comEntRecRet.ComEntRecRet(btn1.GetEntityIDField());
-
-                    //frame.Content = new ContactSearchByCompanyPage(SW_CES, frame);
+                    ContactEntityClass conEnt = new ContactEntityClass();
+                    conEnt = ContactEntityRecordRetrieve.ConEntRecRet(btn1.GetEntityIDField(), btn1.GetContactEntityIDField());
+                    frame.Content = new CaseSearchByContactPage(conEnt, frame);
 
                 };
                 SearchWindowGrid.Children.Add(btn1);
@@ -104,7 +104,7 @@ namespace ClientMCR
         {
             //// Not developed yet.
             //throw new NotImplementedException();
-            SW_CES.SetAddCompanyEntity(true);
+            SW_CES.SetEditCompanyEntity(true);
             frame.Content = new AddCompanyEntityPage(SW_CES, frame);
         }
     }

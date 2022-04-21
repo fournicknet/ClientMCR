@@ -74,7 +74,7 @@ namespace ClientMCR
             {
 
                 contactCount++;
-                rowValueString = "row" + contactCount.ToString();
+                //rowValueString = "row" + contactCount.ToString();
                 var height = GridLength.Auto;
                 height = new GridLength(1, GridUnitType.Star);
                 SearchWindowGrid.RowDefinitions.Add(new RowDefinition()
@@ -84,7 +84,7 @@ namespace ClientMCR
 
                 ButtonModified btn1 = new ButtonModified();
                 btn1.Content = contact.GetContactNameField();
-                btn1.SetEntityIDField(contact.GetCompanyEntityIDField());
+                btn1.SetCompanyEntityIDField(contact.GetCompanyEntityIDField());
                 btn1.SetContactEntityIDField(contact.GetEntityIDField());
                 btn1.SetValue(Grid.RowProperty, contactCount);
                 btn1.SetValue(Grid.ColumnProperty, 0);

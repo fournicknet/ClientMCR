@@ -75,15 +75,15 @@
                                     </Grid.ColumnDefinitions>
 
                                     <TextBlock Text="Contact Name   " Grid.Column="0" Grid.Row="0" Background="#C8D1F4"  />
-                                    <TextBox x:Name="ContactNameBox" Text="" Grid.Column="1" Grid.Row="0" />
+                                    <TextBlock x:Name="ContactNameBox" Text="" Grid.Column="1" Grid.Row="0" Background="#C8D1F4" />
                                     <TextBlock Text="Contact ID   " Grid.Column="0" Grid.Row="1" Background="#C8D1F4"  />
-                                    <TextBox x:Name="ContactIDBox" Text="" Grid.Column="1" Grid.Row="1" />
+                                    <TextBlock x:Name="ContactIDBox" Text="" Grid.Column="1" Grid.Row="1" Background="#C8D1F4"/>
                                     <TextBlock Text="Phone #" Grid.Column="0" Grid.Row="2" Background="#C8D1F4" />
-                                    <TextBox x:Name="ContactPhoneNumberBox" Text="" Grid.Column="1" Grid.Row="2" />
+                                    <TextBlock x:Name="ContactPhoneNumberBox" Text="" Grid.Column="1" Grid.Row="2" Background="#C8D1F4"/>
                                     <TextBlock Text="Phone extension" Grid.Column="0" Grid.Row="3" Background="#C8D1F4" />
-                                    <TextBox x:Name="ContactPhoneExtensionBox" Text="" Grid.Column="1" Grid.Row="3" />
+                                    <TextBlock x:Name="ContactPhoneExtensionBox" Text="" Grid.Column="1" Grid.Row="3" Background="#C8D1F4"/>
                                     <TextBlock Text="eMail" Grid.Column="0" Grid.Row="4" Background="#C8D1F4" />
-                                    <TextBox x:Name="ContacteMailBox" Text="" Grid.Column="1" Grid.Row="4"/>
+                                    <TextBlock x:Name="ContacteMailBox" Text="" Grid.Column="1" Grid.Row="4" Background="#C8D1F4"/>
                                 </Grid>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Grid.Row="3" >
@@ -169,7 +169,7 @@
                     <!--MainSearchArea-->
 
                     <StackPanel Grid.Column="1" Grid.Row="0">
-                        <TextBlock Text="Case Search by Contact Found" FontSize="20" Grid.Column="1" Grid.Row="0" Margin="20, 20, 20, 0" Background="#C8D1F4" />
+                        <TextBlock Text="Cases Search by Contact Found" FontSize="20" Grid.Column="1" Grid.Row="0" Margin="20, 20, 20, 0" Background="#C8D1F4" />
                         <Border BorderThickness="20, 0, 20, 0">
 
                             <Grid x:Name="SearchWindowGrid" Background="#C8D1F4">

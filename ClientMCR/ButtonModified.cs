@@ -17,23 +17,23 @@ namespace ClientMCR
 {
     public partial class ButtonModified : Button
     {
-        int EntityIDField, ContactEntityIDField;
+        int CompanyEntityIDField, ContactEntityIDField;
 
-        public void SetEntityIDField(int IntCompanyIDField)
+        public void SetCompanyEntityIDField(int IntCompanyIDField)
         {
-            EntityIDField = IntCompanyIDField;
+            CompanyEntityIDField = IntCompanyIDField;
         }
 
         public int GetEntityIDField()
         {
-            return EntityIDField;
+            return CompanyEntityIDField;
         }
 
         public string GetEntityIDFieldString()
         {
             try
             {
-                return EntityIDField.ToString();
+                return CompanyEntityIDField.ToString();
             }
             catch (Exception e)
             {
@@ -58,5 +58,10 @@ namespace ClientMCR
             return ContactEntityIDField.ToString();
         }
 
+        //protected override void OnMouseEnter(MouseEventArgs e)
+        //{
+        //    base.OnMouseEnter(e);
+
+        //}
     }
 }

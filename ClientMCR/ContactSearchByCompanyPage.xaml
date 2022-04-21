@@ -76,15 +76,15 @@
                                     </Grid.ColumnDefinitions>
                                     
                                     <TextBlock Text="Company Name   " Grid.Column="0" Grid.Row="0" Background="#C8D1F4"  />
-                                    <TextBox x:Name="CompanyNameBox" Text="" Grid.Column="1" Grid.Row="0" />
+                                    <TextBlock x:Name="CompanyNameBox" Text="" Grid.Column="1" Grid.Row="0" Background="#C8D1F4" />
                                     <TextBlock Text="Company ID   " Grid.Column="0" Grid.Row="1" Background="#C8D1F4"  />
-                                    <TextBox x:Name="CompanyIDBox" Text="" Grid.Column="1" Grid.Row="1" />
+                                    <TextBlock x:Name="CompanyIDBox" Text="" Grid.Column="1" Grid.Row="1" Background="#C8D1F4" />
                                     <TextBlock Text="Phone #" Grid.Column="0" Grid.Row="2" Background="#C8D1F4" />
-                                    <TextBox x:Name="CompanyPhoneNumberBox" Text="" Grid.Column="1" Grid.Row="2" />
+                                    <TextBlock x:Name="CompanyPhoneNumberBox" Text="" Grid.Column="1" Grid.Row="2" Background="#C8D1F4" />
                                     <TextBlock Text="Phone extension" Grid.Column="0" Grid.Row="3" Background="#C8D1F4" />
-                                    <TextBox x:Name="CompanyPhoneExtensionBox" Text="" Grid.Column="1" Grid.Row="3" />
+                                    <TextBlock x:Name="CompanyPhoneExtensionBox" Text="" Grid.Column="1" Grid.Row="3" Background="#C8D1F4" />
                                     <TextBlock Text="eMail" Grid.Column="0" Grid.Row="4" Background="#C8D1F4" />
-                                    <TextBox x:Name="CompanyeMailBox" Text="" Grid.Column="1" Grid.Row="4"/>
+                                    <TextBlock x:Name="CompanyeMailBox" Text="" Grid.Column="1" Grid.Row="4" Background="#C8D1F4" />
                                 </Grid>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Grid.Row="3" >
@@ -192,13 +192,12 @@
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="1*"/>
-                                    <RowDefinition Height="1*"/>
                                 </Grid.RowDefinitions>
                                 
-                                <TextBlock Text="Contact Name" Grid.Column="0" Grid.Row="1" Background="#C8D1F4" />
-                                <TextBlock Text="Contact ID" Grid.Column="1" Grid.Row="1" Background="#C8D1F4" />
-                                <TextBlock Text="Contact Phone #" Grid.Column="2" Grid.Row="1" Background="#C8D1F4" />
-                                <TextBlock Text="Contact eMail" Grid.Column="3" Grid.Row="1" Background="#C8D1F4" />
+                                <TextBlock Text="Contact Name" Grid.Column="0" Grid.Row="0" Background="#C8D1F4" />
+                                <TextBlock Text="Contact ID" Grid.Column="1" Grid.Row="0" Background="#C8D1F4" />
+                                <TextBlock Text="Contact Phone #" Grid.Column="2" Grid.Row="0" Background="#C8D1F4" />
+                                <TextBlock Text="Contact eMail" Grid.Column="3" Grid.Row="0" Background="#C8D1F4" />
                             </Grid>
                         </Border>
                     </StackPanel>

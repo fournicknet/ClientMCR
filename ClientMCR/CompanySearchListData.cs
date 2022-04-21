@@ -9,7 +9,7 @@ namespace ClientMCR
     internal class CompanySearchListData
     {
         int CompanyEntityIDField;
-        string CompanyNameField = "null", CompanyIDField = "null", PhoneNumberField = "null", eMailAddress = "null";
+        string CompanyNameField = "null", CompanyIDField = "null", PhoneNumberField = "null", PhoneNumberExtensionField = "null", eMailAddress = "null";
 
         public void SetCompanyNameField(string StringCompanyNameField)
         {
@@ -61,6 +61,16 @@ namespace ClientMCR
         public string GetCompanyPhoneNumberField()
         {
             return PhoneNumberField;
+        }
+
+        public void SetCompanyPhoneNumberExtensionField(string StringCompanyPhoneNumberExtensionField)
+        {
+            PhoneNumberExtensionField = StringCompanyPhoneNumberExtensionField;
+        }
+
+        public string GetCompanyPhoneNumberExtensionField()
+        {
+            return PhoneNumberExtensionField;
         }
 
         public void SeteMailAddress(string StringeMailAddress)

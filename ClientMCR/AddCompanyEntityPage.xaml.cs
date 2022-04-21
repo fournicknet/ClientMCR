@@ -59,7 +59,7 @@ namespace ClientMCR
                     
                     //We need to load data from "database"
                     CompanyEntityRecordRetrieve comEntRecRet = new CompanyEntityRecordRetrieve();
-                    CompanyEntityClass newADE_CCES = comEntRecRet.ComEntRecRet(ADE_CCES.GetEntityIDField());
+                    CompanyEntityClass newADE_CCES = comEntRecRet.ComEntRecRet(ADE_CCES.GetCompanyEntityIDField());
                     ADE_CCES = newADE_CCES;
 
                     ADE_CCES.SetEditCompanyEntity(true);
@@ -145,7 +145,7 @@ namespace ClientMCR
                 resultFromEntityRecordCreate = CompanyEntityRecordCreate.CRC(ADE_CCES);
                 if (resultFromEntityRecordCreate != -1 || resultFromEntityRecordCreate != -2)
                 {
-                    ADE_CCES.SetEntityIDField(resultFromEntityRecordCreate);
+                    ADE_CCES.SetCompanyEntityIDField(resultFromEntityRecordCreate);
                     EntityID.Text = resultFromEntityRecordCreate.ToString();
 
                     CompanyName2.Text = CompanyNameBox.Text;

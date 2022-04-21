@@ -10,18 +10,18 @@ namespace ClientMCR
     
     internal class ContactEntityRecordRetrieve
     {
-        static string datadocPath = @"C:\DataMCR";
+        static string datadocPath;
         static string entityIDasSTring;
         static int entityID;
         public static ContactEntityClass ConEntRecRet(int CompanyEntityID, int ContactEntityID)
         {
             ContactEntityClass contactDataToReturn = new ContactEntityClass();
-
+            datadocPath = MainDataManager.GetDataDocPath();
             try
             {
-                StreamReader sr = new StreamReader(datadocPath + "\\" + CompanyEntityID.ToString() + "\\" + "contacts" + "\\" + ContactEntityID.ToString());
+                StreamReader sr = new StreamReader(datadocPath + "\\" + CompanyEntityID.ToString() + "\\" + "contacts" + "\\" + ContactEntityID.ToString() + "\\"+ "contactdata.txt");
                 contactDataToReturn.SetContactNameField(sr.ReadLine());
-                contactDataToReturn.SetEntityIDFieldString(sr.ReadLine());
+                contactDataToReturn.SetContactEntityIDFieldString(sr.ReadLine());
                 contactDataToReturn.SetCompanyEntityIDFieldString(sr.ReadLine());
                 contactDataToReturn.SetContactPhoneNumberField(sr.ReadLine());
                 contactDataToReturn.SetContactPhoneNumberExtension(sr.ReadLine());

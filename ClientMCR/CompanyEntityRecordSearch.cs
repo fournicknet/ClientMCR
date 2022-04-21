@@ -10,12 +10,14 @@ namespace ClientMCR
     
     internal class CompanyEntityRecordSearch
     {
-        static string datadocPath = @"C:\DataMCR";
+        static string datadocPath;
         static int companyNameField = 0;
         static char[] stringToRemove = { '(', ')', '-' };
 
         public static List<CompanySearchListData> ComEntRecSea(string CompanyName, string CompanyID, string phoneNumber, string eMailAddress)
         {
+            datadocPath = MainDataManager.GetDataDocPath();
+
             List<CompanySearchListData> rawData = new List<CompanySearchListData>();
 
             List<CompanySearchListData> dataToReturn = new List<CompanySearchListData>();
@@ -24,11 +26,13 @@ namespace ClientMCR
                 List<string> dirs = new List<string>(Directory.EnumerateDirectories(datadocPath));
                 int numberOfDirs = dirs.Count();
                 dirs.Sort();
+                //we remove the first ghost directory from the search
+                dirs.RemoveAt(0);
                 foreach (string dir in dirs)
                 {
                     //we need to add the  company entity id, company name, company id, phoneNumber and eMailAddress to each list object
                     CompanySearchListData comSeaLisData = new CompanySearchListData();
-                    string dirNumberString = dir.Remove(0, 11);
+                    string dirNumberString = dir.Remove(0, 21);
                     int dirNumber = 0;
                     int.TryParse(dirNumberString, out dirNumber);
                     comSeaLisData.SetEntityIDField(dirNumber);
@@ -38,6 +42,7 @@ namespace ClientMCR
                     Console.WriteLine(sr.ReadLine());
                     comSeaLisData.SetCompanyIDField(sr.ReadLine());
                     comSeaLisData.SetCompanyPhoneNumberField(sr.ReadLine());
+                    comSeaLisData.SetCompanyPhoneNumberExtensionField(sr.ReadLine());
                     comSeaLisData.SeteMailAddress(sr.ReadLine());
                     sr.Close();
                     //we now add it to our list
@@ -52,7 +57,7 @@ namespace ClientMCR
             //we now check if any of the strings match our collection of data
             foreach (CompanySearchListData data in rawData)
             {
-                if (data.GetCompanyNameField().Contains(CompanyName))
+                if (data.GetCompanyNameField() == CompanyName)
                 {
                     dataToReturn.Add(data);
                     
@@ -67,31 +72,37 @@ namespace ClientMCR
                     //CompareTwoLists(data, dataToReturn, CompanyName);
                 }
 
-                string dataPhoneNumber, userProvidedPhoneNumber;
-                dataPhoneNumber = data.GetCompanyPhoneNumberField();
-                dataPhoneNumber = dataPhoneNumber.Trim(stringToRemove);
-                userProvidedPhoneNumber = phoneNumber.Trim(stringToRemove);
-                if (dataPhoneNumber.Trim().StartsWith("1"))
+                else if (phoneNumber != "")
                 {
-                    dataPhoneNumber = dataPhoneNumber.TrimStart('1');
-                }
-                if (userProvidedPhoneNumber.Trim().StartsWith("1"))
-                {
-                    userProvidedPhoneNumber = userProvidedPhoneNumber.TrimStart('1');
-                }
-
-                else if (dataPhoneNumber.Contains(userProvidedPhoneNumber))
-                {
-                    if(!dataToReturn.Contains(data))
+                    string dataPhoneNumber, userProvidedPhoneNumber;
+                    dataPhoneNumber = data.GetCompanyPhoneNumberField();
+                    dataPhoneNumber = dataPhoneNumber.Trim(stringToRemove);
+                    userProvidedPhoneNumber = phoneNumber.Trim(stringToRemove);
+                    if (dataPhoneNumber.Trim().StartsWith("1"))
                     {
-                        dataToReturn.Add(data);
+                        dataPhoneNumber = dataPhoneNumber.TrimStart('1');
+                    }
+                    if (userProvidedPhoneNumber.Trim().StartsWith("1"))
+                    {
+                        userProvidedPhoneNumber = userProvidedPhoneNumber.TrimStart('1');
                     }
 
-                    //dataToReturn.Add(data);
-                    //Commented out cause it can not remove data from a list being worked on
-                    //rawData.Remove(data);
-                    //CompareTwoPhoneNumbers(data, dataToReturn, CompanyName);
+                    else if (dataPhoneNumber.Contains(userProvidedPhoneNumber))
+                    {
+                        if (!dataToReturn.Contains(data))
+                        {
+                            dataToReturn.Add(data);
+                        }
+
+                        //dataToReturn.Add(data);
+                        //Commented out cause it can not remove data from a list being worked on
+                        //rawData.Remove(data);
+                        //CompareTwoPhoneNumbers(data, dataToReturn, CompanyName);
+                    }
                 }
+                
+
+                
                 else if (data.GeteMailAddress() == eMailAddress)
                 {
                     if (!dataToReturn.Contains(data))

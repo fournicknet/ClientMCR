@@ -12,7 +12,7 @@ namespace ClientMCR
         //EntityID is what "we" assign to the companies our customers will be working with to work with data
         string ContactNameField = "null";
 
-        int EntityIDField, CompanyEntityID;
+        int ContactEntityIDField, CompanyEntityID;
         string ContactIDField = "null", PhoneNumberField = "null", PhoneNumberExtensionField = "null", eMailAddress = "null",
             AddressLine1 = "null", AddressLine2 = "null", AddressCity = "null", AddressState = "null", AddressZipCode = "null";
 
@@ -26,25 +26,25 @@ namespace ClientMCR
             return ContactNameField;
         }
 
-        public void SetEntityIDFieldString(string StringContactIDField)
+        public void SetContactEntityIDFieldString(string StringContactIDField)
         {
-            int.TryParse(StringContactIDField, out EntityIDField);
+            int.TryParse(StringContactIDField, out ContactEntityIDField);
         }
-        public void SetEntityIDField(int IntContactIDField)
+        public void SetContactEntityIDField(int IntContactIDField)
         {
-            EntityIDField = IntContactIDField;
+            ContactEntityIDField = IntContactIDField;
         }
 
-        public int GetEntityIDField()
+        public int GetContactEntityIDField()
         {
-            return EntityIDField;
+            return ContactEntityIDField;
         }
 
         public string GetEntityIDFieldString()
         {
             try
             {
-                return EntityIDField.ToString();
+                return ContactEntityIDField.ToString();
             }
             catch (Exception e)
             {

@@ -22,10 +22,12 @@ namespace ClientMCR
     {
         //CompanyEntityClass SW_CES = null;
         CompanyEntityClass SW_CES;
+        ButtonModified BM_button;
         Frame frame;
 
         List<CompanySearchListData> returnedCompanies;
         string rowValueString = "null";
+        int companyCount = 0;
 
         public CompanySearchPage(CompanyEntityClass CCES, Frame mainframe)
         {
@@ -48,6 +50,8 @@ namespace ClientMCR
 
         private void CompanySearch(object sender, RoutedEventArgs e)
         {
+
+            ClearSearchResults();
             //sudo code * if search results return nothing Do this
 
             if (SW_CES != null)
@@ -57,38 +61,25 @@ namespace ClientMCR
             }
             returnedCompanies = CompanyEntityRecordSearch.ComEntRecSea(CompanyNameBox.Text, CompanyIDBox.Text, CompanyPhoneNumberBox.Text, CompanyeMailBox.Text);
 
-            int companyCount = 0;
-
-                
             //the returnedCompanies is a list of companies found in the search returned to us
             //we are going through each company returned to us and making a row and a button and adding it.
             foreach (CompanySearchListData company in returnedCompanies)
             {
-
+                
                 companyCount++;
-                rowValueString = "row" + companyCount.ToString();
-                var height = GridLength.Auto;
-                    height = new GridLength(1, GridUnitType.Star);
-                SearchWindowGrid.RowDefinitions.Add(new RowDefinition()
-                    {
-                        Height = height
-                });
+                //rowValueString = "row" + companyCount.ToString();
 
-                ButtonModified btn1 = new ButtonModified();
-                btn1.Content = company.GetCompanyNameField();
-                btn1.SetEntityIDField(company.GetEntityIDField());
-                btn1.SetValue(Grid.RowProperty, companyCount);
-                btn1.SetValue(Grid.ColumnProperty, 0);
-                //the following code below is a lambda expression
-                btn1.Click += (source, e) =>
-                {
-                    CompanyEntityRecordRetrieve comEntRecRet = new CompanyEntityRecordRetrieve();
-                    SW_CES = comEntRecRet.ComEntRecRet(btn1.GetEntityIDField());
+                AddRowDefinitionToSearchWindowGrid();
 
-                    frame.Content = new ContactSearchByCompanyPage(SW_CES, frame);
-                        
-                };
-                SearchWindowGrid.Children.Add(btn1);
+                AddModifiedButtonToSearchWindowGrid_CompanyName(company);
+
+                AddModifiedButtonToSearchWindowGrid_CompanyID(company);
+
+                AddModifiedButtonToSearchWindowGrid_CompanyPhone(company);
+
+                AddModifiedButtonToSearchWindowGrid_CompanyeMail(company);
+
+
             }
             
 
@@ -98,11 +89,107 @@ namespace ClientMCR
             //this.Close();
         }
 
+        private void AddRowDefinitionToSearchWindowGrid()
+        {
+            var height = GridLength.Auto;
+            height = new GridLength(1, GridUnitType.Star);
+            SearchWindowGrid.RowDefinitions.Add(new RowDefinition()
+            {
+                Height = height
+            });
+        }
+        private void AddModifiedButtonToSearchWindowGrid_CompanyName(CompanySearchListData company)
+        {
+            ButtonModified btn1 = new ButtonModified();
+            btn1.Content = company.GetCompanyNameField();
+            btn1.Name = "buttonResult";
+            btn1.BorderThickness = new Thickness(0);
+            btn1.SetCompanyEntityIDField(company.GetEntityIDField());
+            btn1.SetValue(Grid.RowProperty, companyCount);
+            btn1.SetValue(Grid.ColumnProperty, 0);
+            //the following code below is a lambda expression
+            btn1.Click += (source, e) =>
+            {
+                CompanyEntityRecordRetrieve comEntRecRet = new CompanyEntityRecordRetrieve();
+                SW_CES = comEntRecRet.ComEntRecRet(btn1.GetEntityIDField());
 
+                frame.Content = new ContactSearchByCompanyPage(SW_CES, frame);
+
+            };
+            SearchWindowGrid.Children.Add(btn1);
+            BM_button = btn1;
+        }
+
+        private void AddModifiedButtonToSearchWindowGrid_CompanyID(CompanySearchListData company)
+        {
+            ButtonModified btn1 = new ButtonModified();
+            btn1.Content = company.GetCompanyIDField();
+            btn1.Name = "buttonResult";
+            btn1.BorderThickness = new Thickness(0);
+            btn1.SetCompanyEntityIDField(company.GetEntityIDField());
+            btn1.SetValue(Grid.RowProperty, companyCount);
+            btn1.SetValue(Grid.ColumnProperty, 1);
+            //the following code below is a lambda expression
+            btn1.Click += (source, e) =>
+            {
+                CompanyEntityRecordRetrieve comEntRecRet = new CompanyEntityRecordRetrieve();
+                SW_CES = comEntRecRet.ComEntRecRet(btn1.GetEntityIDField());
+
+                frame.Content = new ContactSearchByCompanyPage(SW_CES, frame);
+
+            };
+            SearchWindowGrid.Children.Add(btn1);
+            BM_button = btn1;
+        }
+
+        private void AddModifiedButtonToSearchWindowGrid_CompanyPhone(CompanySearchListData company)
+        {
+            ButtonModified btn1 = new ButtonModified();
+            btn1.Content = company.GetCompanyPhoneNumberField();
+            btn1.Name = "buttonResult";
+            btn1.BorderThickness = new Thickness(0);
+            btn1.SetCompanyEntityIDField(company.GetEntityIDField());
+            btn1.SetValue(Grid.RowProperty, companyCount);
+            btn1.SetValue(Grid.ColumnProperty, 2);
+            //the following code below is a lambda expression
+            btn1.Click += (source, e) =>
+            {
+                CompanyEntityRecordRetrieve comEntRecRet = new CompanyEntityRecordRetrieve();
+                SW_CES = comEntRecRet.ComEntRecRet(btn1.GetEntityIDField());
+
+                frame.Content = new ContactSearchByCompanyPage(SW_CES, frame);
+
+            };
+            SearchWindowGrid.Children.Add(btn1);
+            BM_button = btn1;
+        }
+
+        private void AddModifiedButtonToSearchWindowGrid_CompanyeMail(CompanySearchListData company)
+        {
+            ButtonModified btn1 = new ButtonModified();
+            btn1.Content = company.GeteMailAddress();
+            btn1.Name = "buttonResult";
+            btn1.BorderThickness = new Thickness(0);
+            btn1.SetCompanyEntityIDField(company.GetEntityIDField());
+            btn1.SetValue(Grid.RowProperty, companyCount);
+            btn1.SetValue(Grid.ColumnProperty, 3);
+            //the following code below is a lambda expression
+            btn1.Click += (source, e) =>
+            {
+                CompanyEntityRecordRetrieve comEntRecRet = new CompanyEntityRecordRetrieve();
+                SW_CES = comEntRecRet.ComEntRecRet(btn1.GetEntityIDField());
+
+                frame.Content = new ContactSearchByCompanyPage(SW_CES, frame);
+
+            };
+            SearchWindowGrid.Children.Add(btn1);
+            BM_button = btn1;
+        }
 
         private void ClearCompanySearch(object sender, RoutedEventArgs e)
         {
             ClearCompanyEntityFields();
+            ClearSearchResults();
         }
 
         private void ClearCompanyEntityFields()
@@ -133,6 +220,16 @@ namespace ClientMCR
         private void SearchContact(object sender, RoutedEventArgs e)
         {
             frame.Content = new ContactSearchPage(frame);
+        }
+
+        private void ClearSearchResults()
+        {
+           int numberofObjectsCount = SearchWindowGrid.Children.Count;
+            for (int i = 0; i <= numberofObjectsCount; ++i)
+            {
+                SearchWindowGrid.Children.Remove(BM_button);
+                //SearchWindowGrid.RowDefinitions.Remove(i);
+            }
         }
     }
 

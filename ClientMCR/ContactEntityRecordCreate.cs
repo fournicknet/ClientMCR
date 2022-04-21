@@ -14,7 +14,7 @@ namespace ClientMCR
         static int timeToWait;
         static int newDirectoryToCreate;
         static string stringNewDirectoryToCreate;
-        static string datadocPath = @"C:\DataMCR";
+        static string datadocPath;
         static string companyDatadocPath;
         static string stringCompanyEntityID;
         //public static int AssignEntityID(int companyEntityID)
@@ -40,6 +40,8 @@ namespace ClientMCR
         //CRC stands for CompanyRecordCreate
         public static int ContactRecordCreate(ContactEntityClass ContactEC)
         {
+            datadocPath = MainDataManager.GetDataDocPath();
+
             if (ContactEC != null)
             {
                 int lastCreatedDirectory;
@@ -72,8 +74,9 @@ namespace ClientMCR
                     string lastDir = dirs[numberOfDirs - 1];
 
                     //This code should work "assuming" that we are accounting for all the spaces and that the following directory structure hasn't changed. e.i
-                    //@"C:\DataMCR" + "\\" + "1000000000" + "\\" + "contacts"+ "\\" + "1000000000"
-                    string newLastDir = lastDir.Remove(0, 31);
+                    //@"C:\DataMCR" + "\\" + "companies" + "\\" + "1000000000" + "\\" + "contacts"+ "\\" + "1000000000"
+                    //old value for remove was 31 but that was before "companies" dir was added.
+                    string newLastDir = lastDir.Remove(0, 41);
                     //string newLastDir = lastDir.TrimStart('C',':','\\','D','a','t','a','M','C','R','\\');
                     //we are now getting the number value of the directory
                     int.TryParse(newLastDir, out lastCreatedDirectory);

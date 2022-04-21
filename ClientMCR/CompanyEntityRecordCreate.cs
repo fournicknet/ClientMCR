@@ -13,7 +13,7 @@ namespace ClientMCR
         static int secondsInMinute = 60;
         static int timeToWait;
         static string stringNewDirectoryToCreate;
-        static string datadocPath = @"C:\DataMCR";
+        static string datadocPath;
         static string companyDatadocPath;
         static int newDirectoryToCreate;
         //public static int AssignEntityID()
@@ -42,6 +42,8 @@ namespace ClientMCR
         //CRC stands for CompanyRecordCreate
         public static int CRC(CompanyEntityClass SW_CES)
         {
+            datadocPath = MainDataManager.GetDataDocPath();
+
             if (SW_CES != null)
             {
                 if(SW_CES.GetAddCompanyEntity())
@@ -67,7 +69,7 @@ namespace ClientMCR
                         //we are accessing the position inside the list of dirs and assigning the value to a string
                         string lastDir = dirs[numberOfDirs - 1];
                         //we are trimming the entire value from the directory and only getting the result of the sub directory
-                        string newLastDir = lastDir.TrimStart('C', ':', '\\', 'D', 'a', 't', 'a', 'M', 'C', 'R', '\\');
+                        string newLastDir = lastDir.TrimStart('C', ':', '\\', 'D', 'a', 't', 'a', 'M', 'C', 'R', '\\', 'c', 'o', 'm', 'p', 'a', 'n', 'i', 'e', 's', '\\');
                         //we are now getting the number value of the directory
                         int.TryParse(newLastDir, out lastCreatedDirectory);
                         newDirectoryToCreate = lastCreatedDirectory + 1;
@@ -110,8 +112,8 @@ namespace ClientMCR
 
                 if(SW_CES.GetEditCompanyEntity())
                 {
-                    companyDatadocPath = datadocPath + "\\" + SW_CES.GetEntityIDFieldString();
-                    stringNewDirectoryToCreate = SW_CES.GetEntityIDFieldString();
+                    companyDatadocPath = datadocPath + "\\" + SW_CES.GetCompanyEntityIDFieldString();
+                    stringNewDirectoryToCreate = SW_CES.GetCompanyEntityIDFieldString();
                     writeCompanyDataTXT(SW_CES);
                 }
 

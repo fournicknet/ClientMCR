@@ -172,7 +172,7 @@
                     <!--MainSearchArea-->
                     <StackPanel Grid.Column="1" Grid.Row="0">
                         <Border BorderThickness="20, 20, 20, 0">
-                            <Grid x:Name="SearchWindowGrid">
+                            <Grid x:Name="SearchWindowGrid" Background="#C8D1F4">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="1*"/>
@@ -182,10 +182,10 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="1*"/>
                                 </Grid.RowDefinitions>
-                                <TextBlock x:Name="Company_Name" Text="Company Name" Grid.Column="0" Grid.Row="0" Background="#C8D1F4" />
-                                <TextBlock x:Name="Company_ID" Text="Company ID" Grid.Column="1" Grid.Row="0" Background="#C8D1F4" />
-                                <TextBlock Text="Company Phone #" Grid.Column="2" Grid.Row="0" Background="#C8D1F4" AllowDrop="True"/>
-                                <TextBlock Text="Company eMail" Grid.Column="3" Grid.Row="0" Background="#C8D1F4" AllowDrop="True"/>
+                                <TextBlock x:Name="Company_Name" Text="Company Name" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Background="#C8D1F4"  />
+                                <TextBlock x:Name="Company_ID" Text="Company ID" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Background="#C8D1F4" />
+                                <TextBlock Text="Company Phone #" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" Background="#C8D1F4" AllowDrop="True"/>
+                                <TextBlock Text="Company eMail" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Center" Background="#C8D1F4" AllowDrop="True"/>
                             </Grid>
                         </Border>
                     </StackPanel>
