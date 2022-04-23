@@ -22,6 +22,7 @@ namespace ClientMCR
     {
         int countByte =0;
         byte[] aByteArray = {0,0,0,0,0};
+        public SolidColorBrush defaultbuttonBackground;
         public MainWindow()
         {
             InitializeComponent();
@@ -52,6 +53,7 @@ namespace ClientMCR
                 aByteArray[countByte] =aByte;
                 countByte++;
             }
+            countByte = 0;
             //the alpha is in the last two decmal places of the hex value so it goes in the alpha
             Color color = new Color();
             color.A = aByteArray[3];
@@ -60,10 +62,24 @@ namespace ClientMCR
             color.B = aByteArray[2];
 
 
+            List<byte> aMouseByteList = backColor.GetBackgroundButtonDefaultColor();
+            foreach (byte aMouseByte in aMouseByteList)
+            {
+
+                aByteArray[countByte] = aMouseByte;
+                countByte++;
+            }
+            //the alpha is in the last two decmal places of the hex value so it goes in the alpha
+            Color MouseBackcolor = new Color();
+            MouseBackcolor.A = aByteArray[3];
+            MouseBackcolor.R = aByteArray[0];
+            MouseBackcolor.G = aByteArray[1];
+            MouseBackcolor.B = aByteArray[2];
+
 
             MainStackPanel.Background = new SolidColorBrush(color);
-                
 
+            defaultbuttonBackground = new SolidColorBrush(MouseBackcolor);
 
             //MainWindow mw = (MainWindow)Application.Current.MainWindow;
             //mw.Background = brush; 

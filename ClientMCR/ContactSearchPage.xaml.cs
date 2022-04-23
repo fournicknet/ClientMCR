@@ -82,7 +82,7 @@ namespace ClientMCR
                     Height = height
                 });
 
-                ButtonModified btn1 = new ButtonModified();
+                LineSelectButton btn1 = new LineSelectButton();
                 btn1.Content = contact.GetContactNameField();
                 btn1.SetCompanyEntityIDField(contact.GetCompanyEntityIDField());
                 btn1.SetContactEntityIDField(contact.GetEntityIDField());
@@ -106,5 +106,7 @@ namespace ClientMCR
         {
             frame.Content = new CompanySearchPage(frame);
         }
+
+        
     }
 }

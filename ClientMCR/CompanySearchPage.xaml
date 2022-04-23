@@ -139,7 +139,7 @@
                                     </Grid.ColumnDefinitions>
                                     <Button Content="empty" Grid.Column="5" Grid.Row="0" IsEnabled="False" Visibility ="Hidden"/>
                                     <Button Content="Search" Grid.Column="5" Grid.Row="1" Click="CompanySearch" />
-                                    <Button Content="Clear Form" Grid.Column="3" Grid.Row="1" Click="ClearCompanySearch" />
+                                    <Button Content="Clear Form" Grid.Column="3" Grid.Row="1" Click="ClearCompanySearch"/>
                                     <Button Content="empty" Grid.Column="5" Grid.Row="2" IsEnabled="False" Visibility ="Hidden"/>
                                 </Grid>
                             </StackPanel>

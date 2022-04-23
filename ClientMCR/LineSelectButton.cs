@@ -15,9 +15,10 @@ using System.Windows.Shapes;
 
 namespace ClientMCR
 {
-    public partial class ButtonModified : Button
+    public partial class LineSelectButton : Button
     {
-        int CompanyEntityIDField, ContactEntityIDField;
+        int CompanyEntityIDField, ContactEntityIDField, rowSpread, columnSpread;
+        bool isLineSelectMouseOver = false;
 
         public void SetCompanyEntityIDField(int IntCompanyIDField)
         {
@@ -57,6 +58,42 @@ namespace ClientMCR
         {
             return ContactEntityIDField.ToString();
         }
+
+        public void SetRowSpread(int rowSpreadProvided)
+        {
+            rowSpread = rowSpreadProvided;
+        }
+
+        public int GetRowSpread()
+        {
+            return rowSpread;
+        }
+
+        public void SetColumnSpread(int columnSpreadProvided)
+        {
+            columnSpread = columnSpreadProvided;
+        }
+
+        public int GetColumnSpread()
+        {
+            return columnSpread;
+        }
+
+        public void SetIsLineSelectedMouseOver(bool isSelected)
+        {
+            isLineSelectMouseOver = isSelected;
+        }
+
+        public bool GetIsLineSelectedMouseOver()
+        {
+            return isLineSelectMouseOver;
+        }
+        protected override void OnMouseEnter(MouseEventArgs e)
+        {
+            base.OnMouseEnter(e);
+
+        }
+
 
         //protected override void OnMouseEnter(MouseEventArgs e)
         //{

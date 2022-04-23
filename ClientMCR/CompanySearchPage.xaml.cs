@@ -22,12 +22,14 @@ namespace ClientMCR
     {
         //CompanyEntityClass SW_CES = null;
         CompanyEntityClass SW_CES;
-        ButtonModified BM_button;
+        LineSelectButton BM_button;
         Frame frame;
 
         List<CompanySearchListData> returnedCompanies;
         string rowValueString = "null";
         int companyCount = 0;
+        List<LineSelectButton> LineSelectButtons = new List<LineSelectButton>();
+        Brush defaultBackground;
 
         public CompanySearchPage(CompanyEntityClass CCES, Frame mainframe)
         {
@@ -37,6 +39,14 @@ namespace ClientMCR
 
             SW_CES = CCES;
             CompanyIDBox.Text = "Not Required";
+
+            
+            Button btnDefault = new Button();
+            //defaultBackground = btnDefault.Background;
+            defaultBackground = Brushes.LightSkyBlue;
+            //defaultBackground = btnDefault.Background;
+
+
         }
         public CompanySearchPage(Frame mainframe)
         {
@@ -46,13 +56,30 @@ namespace ClientMCR
             CompanyEntityClass CCES = new CompanyEntityClass();
             SW_CES = CCES;
             CompanyIDBox.Text = "Not Required";
+
+            Button btnDefault = new Button();
+            //defaultBackground = btnDefault.Background;
+            defaultBackground = Brushes.LightSkyBlue;
+            
+            //defaultBackground = btnDefault.Background;
+
         }
+
+        //private bool IsRemovable(LineSelectButton BM_button)
+        //{
+        //    if(BM_button != null)
+        //    {
+        //        return BM_button.Name.StartsWith("button");
+        //    }
+            
+        //}
 
         private void CompanySearch(object sender, RoutedEventArgs e)
         {
 
             ClearSearchResults();
             //sudo code * if search results return nothing Do this
+            
 
             if (SW_CES != null)
             {
@@ -100,13 +127,15 @@ namespace ClientMCR
         }
         private void AddModifiedButtonToSearchWindowGrid_CompanyName(CompanySearchListData company)
         {
-            ButtonModified btn1 = new ButtonModified();
+            LineSelectButton btn1 = new LineSelectButton();
             btn1.Content = company.GetCompanyNameField();
             btn1.Name = "buttonResult";
             btn1.BorderThickness = new Thickness(0);
             btn1.SetCompanyEntityIDField(company.GetEntityIDField());
             btn1.SetValue(Grid.RowProperty, companyCount);
+            btn1.SetRowSpread(companyCount);
             btn1.SetValue(Grid.ColumnProperty, 0);
+            btn1.SetColumnSpread(0);
             //the following code below is a lambda expression
             btn1.Click += (source, e) =>
             {
@@ -116,19 +145,57 @@ namespace ClientMCR
                 frame.Content = new ContactSearchByCompanyPage(SW_CES, frame);
 
             };
+            btn1.MouseEnter += (source, e) =>
+            {
+                foreach(LineSelectButton btn in LineSelectButtons)
+                {
+                    //if(btn.GetValue(Grid.RowProperty) == btn1.GetValue(Grid.RowProperty))
+                    if(btn1.GetRowSpread() == btn.GetRowSpread())
+                    {
+
+                        btn.Background = new SolidColorBrush(Color.FromArgb(255, 190, 230, 253));
+                        //BackgoundColor bgc = new BackgoundColor();
+                        //btn.Background = bgc.buttonDefaultColor();
+
+                        //btn.Background = System.Windows.Media.Brushes.Aqua;
+
+                        //defaultBackground
+                    }
+                }
+            };
+            btn1.MouseLeave += (source, e) =>
+            {
+                foreach (LineSelectButton btn in LineSelectButtons)
+                {
+                    if (btn.GetValue(Grid.RowProperty) == btn1.GetValue(Grid.RowProperty))
+                    {
+
+                        //btn.Background = defaultBackground;
+
+                        BackgoundColor bgc = new BackgoundColor();
+                        btn.Background = bgc.buttonDefaultColor();
+
+                        //btn.Background = System.Windows.Media.Brushes.Aqua;
+                    }
+                }
+            };
+            LineSelectButtons.Add(btn1);
+
             SearchWindowGrid.Children.Add(btn1);
             BM_button = btn1;
         }
 
         private void AddModifiedButtonToSearchWindowGrid_CompanyID(CompanySearchListData company)
         {
-            ButtonModified btn1 = new ButtonModified();
+            LineSelectButton btn1 = new LineSelectButton();
             btn1.Content = company.GetCompanyIDField();
             btn1.Name = "buttonResult";
             btn1.BorderThickness = new Thickness(0);
             btn1.SetCompanyEntityIDField(company.GetEntityIDField());
             btn1.SetValue(Grid.RowProperty, companyCount);
+            btn1.SetRowSpread(companyCount);
             btn1.SetValue(Grid.ColumnProperty, 1);
+            btn1.SetColumnSpread(1);
             //the following code below is a lambda expression
             btn1.Click += (source, e) =>
             {
@@ -138,19 +205,23 @@ namespace ClientMCR
                 frame.Content = new ContactSearchByCompanyPage(SW_CES, frame);
 
             };
+            LineSelectButtons.Add(btn1);
+
             SearchWindowGrid.Children.Add(btn1);
             BM_button = btn1;
         }
 
         private void AddModifiedButtonToSearchWindowGrid_CompanyPhone(CompanySearchListData company)
         {
-            ButtonModified btn1 = new ButtonModified();
+            LineSelectButton btn1 = new LineSelectButton();
             btn1.Content = company.GetCompanyPhoneNumberField();
             btn1.Name = "buttonResult";
             btn1.BorderThickness = new Thickness(0);
             btn1.SetCompanyEntityIDField(company.GetEntityIDField());
             btn1.SetValue(Grid.RowProperty, companyCount);
+            btn1.SetRowSpread(companyCount);
             btn1.SetValue(Grid.ColumnProperty, 2);
+            btn1.SetColumnSpread(2);
             //the following code below is a lambda expression
             btn1.Click += (source, e) =>
             {
@@ -160,19 +231,24 @@ namespace ClientMCR
                 frame.Content = new ContactSearchByCompanyPage(SW_CES, frame);
 
             };
+            
+            LineSelectButtons.Add(btn1);
+
             SearchWindowGrid.Children.Add(btn1);
             BM_button = btn1;
         }
 
         private void AddModifiedButtonToSearchWindowGrid_CompanyeMail(CompanySearchListData company)
         {
-            ButtonModified btn1 = new ButtonModified();
+            LineSelectButton btn1 = new LineSelectButton();
             btn1.Content = company.GeteMailAddress();
             btn1.Name = "buttonResult";
             btn1.BorderThickness = new Thickness(0);
             btn1.SetCompanyEntityIDField(company.GetEntityIDField());
             btn1.SetValue(Grid.RowProperty, companyCount);
+            btn1.SetRowSpread(companyCount);
             btn1.SetValue(Grid.ColumnProperty, 3);
+            btn1.SetColumnSpread(3);
             //the following code below is a lambda expression
             btn1.Click += (source, e) =>
             {
@@ -182,6 +258,7 @@ namespace ClientMCR
                 frame.Content = new ContactSearchByCompanyPage(SW_CES, frame);
 
             };
+            LineSelectButtons.Add(btn1);
             SearchWindowGrid.Children.Add(btn1);
             BM_button = btn1;
         }
@@ -228,9 +305,17 @@ namespace ClientMCR
             for (int i = 0; i <= numberofObjectsCount; ++i)
             {
                 SearchWindowGrid.Children.Remove(BM_button);
+                
                 //SearchWindowGrid.RowDefinitions.Remove(i);
             }
+            foreach(LineSelectButton LSB in LineSelectButtons)
+            {
+                LineSelectButtons.RemoveAt(0);
+            }
+            
         }
+
+        
     }
 
         //We should format for everybody or not at all - because it might force formatting for somebody who does not need it

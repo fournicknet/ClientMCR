@@ -30,10 +30,20 @@ namespace ClientMCR
 
         //this was challenging for me so i had to poke fun at code
         List<byte> myByteListFromHell = new List<byte>();
-        
 
+        static string backgroundHexBrush = "FFECE9D8";
+        static byte byteHexColorBackgroundHexBrush1 = 221;
+        static byte byteHexColorBackgroundHexBrush2 = 221;
+        static byte byteHexColorBackgroundHexBrush3 = 221;
+        static byte byteHexColorBackgroundHexBrush4 = 255;
+
+        List<byte> backgroundMouseDec = new List<byte>();
 
         static string HexColorTealBlue = "078282FF";
+
+        static byte[] aByteArray = { 0, 0, 0, 0, 0 };
+
+        int countByte = 0;
 
 
         internal static string GetHTMLColorTanagerTurquoise()
@@ -61,7 +71,7 @@ namespace ClientMCR
             return OurBackGroundHexColorTealBlue;
         }
 
-        internal List<byte> GetTestColor()
+        internal  List<byte> GetTestColor()
         {
             myByteListFromHell.Add(byteHexColorKellyGreen1);
             myByteListFromHell.Add(byteHexColorKellyGreen2);
@@ -70,6 +80,37 @@ namespace ClientMCR
 
             return myByteListFromHell;
         }
+
+        internal List<byte> GetBackgroundButtonDefaultColor()
+        {
+            backgroundMouseDec.Add(byteHexColorBackgroundHexBrush1);
+            backgroundMouseDec.Add(byteHexColorBackgroundHexBrush2);
+            backgroundMouseDec.Add(byteHexColorBackgroundHexBrush3);
+            backgroundMouseDec.Add(byteHexColorBackgroundHexBrush4);
+            return backgroundMouseDec;
+        }
+
+        internal Brush buttonDefaultColor()
+        {
+            List<byte> aMouseByteList = GetBackgroundButtonDefaultColor();
+            foreach (byte aMouseByte in aMouseByteList)
+            {
+
+                aByteArray[countByte] = aMouseByte;
+                countByte++;
+            }
+            //the alpha is in the last two decmal places of the hex value so it goes in the alpha
+            Color MouseBackcolor = new Color();
+            MouseBackcolor.A = aByteArray[3];
+            MouseBackcolor.R = aByteArray[0];
+            MouseBackcolor.G = aByteArray[1];
+            MouseBackcolor.B = aByteArray[2];
+
+            Brush defaultbuttonBackground = new SolidColorBrush(MouseBackcolor);
+            return defaultbuttonBackground;
+        }
+            
+
 
     }
 }

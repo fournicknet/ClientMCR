@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ContactSearchPage" >
     <!--Background="#FF5B689D"-->
-    
+
 
     <Grid>
         <Grid.RowDefinitions>
@@ -88,7 +88,7 @@
                                 </Grid>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Grid.Row="3" >
-                                <Button Content="empty" IsEnabled="False" Visibility ="Hidden"/>
+                                <Button x:Name="defautButton" Content="empty" IsEnabled="True" Visibility ="Hidden"/>
                             </StackPanel>
                             <!--This line is commented out because it belongs on another form/page - Search by customer info should be seperate from company search info-->
                             <!--<TextBlock Text="Search by Customer" FontSize="20" Grid.Column="1" Grid.Row="4" Background="#C8D1F4" />-->
@@ -141,9 +141,9 @@
                                     </Grid.ColumnDefinitions>
                                     <Button Content="empty" Grid.Column="5" Grid.Row="0" IsEnabled="False" Visibility ="Hidden"/>
                                     <Button Content="Search" Grid.Column="5" Grid.Row="2" Click="ContactSearch" Grid.ColumnSpan="2" Margin="0,0,41,0" />
-                                    <Button Content="Clear Form" Grid.Column="2" Grid.Row="1" Click="ClearContactSearch" Grid.ColumnSpan="3" Height="20" Margin="41,0,41,0" Grid.RowSpan="2" VerticalAlignment="Top" />
+                                    <Button Content="Clear Form" Grid.Column="2" Grid.Row="1" Click="ClearContactSearch" Grid.ColumnSpan="3" Height="20" Margin="41,0,41,0" Grid.RowSpan="2" VerticalAlignment="Top"  />
                                     <Button Content="empty" Grid.Column="5" Grid.Row="2" IsEnabled="False" Visibility ="Hidden"/>
-                                    
+
                                 </Grid>
                             </StackPanel>
                             <StackPanel Grid.Column="1" Grid.Row="7" VerticalAlignment="Center" >
@@ -163,7 +163,7 @@
                                     <!--This line is commented out because it belongs on another form/page - Search by customer info should be seperate from company search info-->
                                     <!--<Button Content="Add Company" Grid.Column="1" Grid.Row="0" Click="AddCompanyEntityButton"  />-->
                                     <!--<Button Content="Add Customer" Grid.Column="3" Grid.Row="0"/>-->
-                                    <Button Content="Search Company" Grid.Column="3" Grid.Row="2" Click="CompanySearch" />
+                                    <Button Content="Search Company" Grid.Column="3" Grid.Row="2" Click="CompanySearch" Background="#FFDDDDDD" />
                                     <Button Content="empty" Grid.Column="3" Grid.Row="1" IsEnabled="False" Visibility ="Hidden"/>
                                 </Grid>
                             </StackPanel>
