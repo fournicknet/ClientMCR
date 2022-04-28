@@ -22,4 +22,17 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="CountriesPage\AfghanistanCompanyAddress.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="CountriesPage\AfghanistanCompanyAddress.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
 </Project>

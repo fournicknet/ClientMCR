@@ -179,10 +179,13 @@ namespace ClientMCR
                     }
                 }
             };
-            LineSelectButtons.Add(btn1);
 
-            SearchWindowGrid.Children.Add(btn1);
             BM_button = btn1;
+
+            LineSelectButtons.Add(BM_button);
+
+            SearchWindowGrid.Children.Add(BM_button);
+            
         }
 
         private void AddModifiedButtonToSearchWindowGrid_CompanyID(CompanySearchListData company)
@@ -205,10 +208,12 @@ namespace ClientMCR
                 frame.Content = new ContactSearchByCompanyPage(SW_CES, frame);
 
             };
-            LineSelectButtons.Add(btn1);
 
-            SearchWindowGrid.Children.Add(btn1);
             BM_button = btn1;
+
+            LineSelectButtons.Add(BM_button);
+
+            SearchWindowGrid.Children.Add(BM_button);
         }
 
         private void AddModifiedButtonToSearchWindowGrid_CompanyPhone(CompanySearchListData company)
@@ -231,11 +236,12 @@ namespace ClientMCR
                 frame.Content = new ContactSearchByCompanyPage(SW_CES, frame);
 
             };
-            
-            LineSelectButtons.Add(btn1);
 
-            SearchWindowGrid.Children.Add(btn1);
             BM_button = btn1;
+
+            LineSelectButtons.Add(BM_button);
+
+            SearchWindowGrid.Children.Add(BM_button);
         }
 
         private void AddModifiedButtonToSearchWindowGrid_CompanyeMail(CompanySearchListData company)
@@ -258,9 +264,11 @@ namespace ClientMCR
                 frame.Content = new ContactSearchByCompanyPage(SW_CES, frame);
 
             };
-            LineSelectButtons.Add(btn1);
-            SearchWindowGrid.Children.Add(btn1);
             BM_button = btn1;
+
+            LineSelectButtons.Add(BM_button);
+
+            SearchWindowGrid.Children.Add(BM_button);
         }
 
         private void ClearCompanySearch(object sender, RoutedEventArgs e)
@@ -302,16 +310,27 @@ namespace ClientMCR
         private void ClearSearchResults()
         {
            int numberofObjectsCount = SearchWindowGrid.Children.Count;
-            for (int i = 0; i <= numberofObjectsCount; ++i)
+            //we are dividing by 4 cause there are 4 colums per row
+           int numberOfRows = numberofObjectsCount / 4;
+            numberOfRows = numberOfRows - 1;
+            for (int i = 0; i < numberOfRows; i++)
             {
-                SearchWindowGrid.Children.Remove(BM_button);
-                
+                SearchWindowGrid.Children.RemoveAt(4);
+                SearchWindowGrid.Children.RemoveAt(4);
+                SearchWindowGrid.Children.RemoveAt(4);
+                SearchWindowGrid.Children.RemoveAt(4);
+                //SearchWindowGrid.Children.Clear();
+                LineSelectButtons.RemoveAt(0);
+                LineSelectButtons.RemoveAt(0);
+                LineSelectButtons.RemoveAt(0);
+                LineSelectButtons.RemoveAt(0);
+
                 //SearchWindowGrid.RowDefinitions.Remove(i);
             }
-            foreach(LineSelectButton LSB in LineSelectButtons)
-            {
-                LineSelectButtons.RemoveAt(0);
-            }
+            //foreach(LineSelectButton LSB in LineSelectButtons)
+            //{
+            //    LineSelectButtons.RemoveAt(0);
+            //}
             
         }
 

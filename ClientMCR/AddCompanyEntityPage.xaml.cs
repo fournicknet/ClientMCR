@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientMCR.CountryFormatAddress;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,7 @@ namespace ClientMCR
         private int maxTextLength = 0;
         private int resultFromEntityRecordCreate;
         bool savedButtonClicked = false;
-        Frame frame;
+        Frame frame, frameCountryAddress;
         public AddCompanyEntityPage(CompanyEntityClass CES, Frame mainframe)
         {
             InitializeComponent();
@@ -48,11 +49,21 @@ namespace ClientMCR
 
                 SetMaxTextLengthForFields();
 
+                listOfCountries loc = new listOfCountries();
+                List<country> countries = new List<country>();
+                countries = loc.GetCountries();
+
+
+                lb.ItemsSource = countries;
+
+
                 if (ADE_CCES.GetAddCompanyEntity())
                 {
                     //ADE_CCES.SetAddCompanyEntity(false);
 
                 }
+
+                
 
                 else if (ADE_CCES.GetEditCompanyEntity())
                 {
@@ -75,6 +86,9 @@ namespace ClientMCR
             {
                 CompanyNameBox.Text = "was null ref - look at how the class is created and passed between wpf pages";
             }
+            frameCountryAddress = MainCountryAddress;
+            
+            //frame.Content = new AddContactEntityToCompanyPage(ADE_CCES, frame);
         }
         private void SetUIFieldsToCompanyEntityInfo()
         {
@@ -85,11 +99,12 @@ namespace ClientMCR
             CompanyPhoneNumberExtensionBox.Text = ADE_CCES.GetCompanyPhoneExtensionField();
             CompanyeMailBox.Text = ADE_CCES.GeteMailAddress();
             CompanyTypeofBusiness.Text = ADE_CCES.GetTypeofBusiness();
-            AddressLine1Box.Text = ADE_CCES.GetAddressLine1();
-            AddressLine2Box.Text = ADE_CCES.GetAddressLine2();
-            AddressCity.Text = ADE_CCES.GetAddressCity();
-            AddressState.Text = ADE_CCES.GetAddressState();
-            AddressZipCode.Text = ADE_CCES.GetAddressZipCode();
+
+            //AddressLine1Box.Text = ADE_CCES.GetAddressLine1();
+            //AddressLine2Box.Text = ADE_CCES.GetAddressLine2();
+            //AddressCity.Text = ADE_CCES.GetAddressCity();
+            //AddressState.Text = ADE_CCES.GetAddressState();
+            //AddressZipCode.Text = ADE_CCES.GetAddressZipCode();
         }
 
         private void SetMaxTextLengthForFields()
@@ -101,11 +116,11 @@ namespace ClientMCR
             CompanyIDBox.MaxLength = maxTextLength;
             CompanyeMailBox.MaxLength = maxTextLength;
             CompanyTypeofBusiness.MaxLength = maxTextLength;
-            AddressLine1Box.MaxLength = maxTextLength;
-            AddressLine2Box.MaxLength = maxTextLength;
-            AddressCity.MaxLength = maxTextLength;
-            AddressState.MaxLength = maxTextLength;
-            AddressZipCode.MaxLength = maxTextLength;
+            //AddressLine1Box.MaxLength = maxTextLength;
+            //AddressLine2Box.MaxLength = maxTextLength;
+            //AddressCity.MaxLength = maxTextLength;
+            //AddressState.MaxLength = maxTextLength;
+            //AddressZipCode.MaxLength = maxTextLength;
         }
         //private void entityIDAssignment()
         //{
@@ -194,11 +209,11 @@ namespace ClientMCR
             ADE_CCES.SetCompanyPhoneExtension(CompanyPhoneNumberExtensionBox.Text);
             ADE_CCES.SeteMailAddress(CompanyeMailBox.Text);
             ADE_CCES.SetTypeofBusiness(CompanyTypeofBusiness.Text);
-            ADE_CCES.SetAddressLine1(AddressLine1Box.Text);
-            ADE_CCES.SetAddressLine2(AddressLine2Box.Text);
-            ADE_CCES.SetAddressCity(AddressCity.Text);
-            ADE_CCES.SetAddressState(AddressState.Text);
-            ADE_CCES.SetAddressZipCode(AddressZipCode.Text);
+            //ADE_CCES.SetAddressLine1(AddressLine1Box.Text);
+            //ADE_CCES.SetAddressLine2(AddressLine2Box.Text);
+            //ADE_CCES.SetAddressCity(AddressCity.Text);
+            //ADE_CCES.SetAddressState(AddressState.Text);
+            //ADE_CCES.SetAddressZipCode(AddressZipCode.Text);
         }
 
         private void ClearCompanyEntityFields()
@@ -209,11 +224,11 @@ namespace ClientMCR
             CompanyPhoneNumberExtensionBox.Text = "";
             CompanyeMailBox.Text = "";
             CompanyTypeofBusiness.Text = "";
-            AddressLine1Box.Text = "";
-            AddressLine2Box.Text = "";
-            AddressCity.Text = "";
-            AddressState.Text = "";
-            AddressZipCode.Text = "";
+            //AddressLine1Box.Text = "";
+            //AddressLine2Box.Text = "";
+            //AddressCity.Text = "";
+            //AddressState.Text = "";
+            //AddressZipCode.Text = "";
         }
 
         private void ClearCompanyTipFields()
@@ -239,6 +254,28 @@ namespace ClientMCR
             //// Not developed yet.
             //throw new NotImplementedException();
         }
+        void CountryDropDownSelection(object sender, SelectionChangedEventArgs args)
+        {
+            country newCountry = (country)(sender as ComboBox).SelectedItem;
+            //tb.Text =
+
+            if (newCountry.countryName == "Afghanistan")
+            {
+                frameCountryAddress.Content = new CountriesPage.AfghanistanCompanyAddress();
+            }
+
+            if (newCountry.countryName== "United States of America")
+            {
+                frameCountryAddress.Content = new CountryFormatAddress.USCompanyAddress();
+            }
+
+            else
+            {
+                frameCountryAddress.Content = new CountryFormatAddress.BlankCountry();
+            }
+        }
+
+        
     }
 }
 
