@@ -1,4 +1,6 @@
-﻿using ClientMCR.CountryFormatAddress;
+﻿using ClientMCR.AddressObjects;
+using ClientMCR.CountriesPage;
+using ClientMCR.CountryFormatAddress;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +24,8 @@ namespace ClientMCR
     public partial class AddCompanyEntityPage : Page
     {
         CompanyEntityClass ADE_CCES;
+
+        CountryPostalEntity CPE;
 
         private int entityID;
         private int maxTextLength = 0;
@@ -53,6 +57,8 @@ namespace ClientMCR
                 List<country> countries = new List<country>();
                 countries = loc.GetCountries();
 
+                CountryPostalEntity preCPE = new CountryPostalEntity();
+                CPE = preCPE;
 
                 lb.ItemsSource = countries;
 
@@ -60,7 +66,6 @@ namespace ClientMCR
                 if (ADE_CCES.GetAddCompanyEntity())
                 {
                     //ADE_CCES.SetAddCompanyEntity(false);
-
                 }
 
                 
@@ -259,14 +264,27 @@ namespace ClientMCR
             country newCountry = (country)(sender as ComboBox).SelectedItem;
             //tb.Text =
 
-            if (newCountry.countryName == "Afghanistan")
+            //if (newCountry.countryName == "Afghanistan")
+            //{
+            //    frameCountryAddress.Content = new CountriesPage.AfghanistanCompanyAddress();
+            //}
+
+            if (newCountry.countryName == "Australia")
             {
-                frameCountryAddress.Content = new CountriesPage.AfghanistanCompanyAddress();
+                CPE.SetStateTerritoryProvinceLocalityDeliveryOffice_Selector("Australia");
+                frameCountryAddress.Content = new CountryCompanyAddress(CPE);
             }
 
-            if (newCountry.countryName== "United States of America")
+            else if (newCountry.countryName == "Canada")
             {
-                frameCountryAddress.Content = new CountryFormatAddress.USCompanyAddress();
+                CPE.SetStateTerritoryProvinceLocalityDeliveryOffice_Selector("Canada");
+                frameCountryAddress.Content = new CountryCompanyAddress(CPE);
+            }
+
+            else if (newCountry.countryName== "United States of America")
+            {
+                CPE.SetStateTerritoryProvinceLocalityDeliveryOffice_Selector("United States of America");
+                frameCountryAddress.Content = new CountryCompanyAddress(CPE);
             }
 
             else

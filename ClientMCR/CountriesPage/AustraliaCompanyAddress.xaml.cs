@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientMCR.AddressObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,20 +17,21 @@ using System.Windows.Shapes;
 namespace ClientMCR.CountriesPage
 {
     /// <summary>
-    /// Interaction logic for USCompanyAddress.xaml
+    /// Interaction logic for AustraliaCompanyAddress.xaml
     /// </summary>
-    public partial class AfghanistanCompanyAddress : Page
+    public partial class AustraliaCompanyAddress : Page
     {
-
-        public AfghanistanCompanyAddress()
+        AustraliaPostalEntity APE;
+        public AustraliaCompanyAddress(AustraliaPostalEntity preAPE)
         {
             InitializeComponent();
+
+            APE = preAPE;
         }
 
         private void AddressLine1Box_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // Not developed yet.
-            throw new NotImplementedException();
+            APE.SetAddressLine1(AddressLine1Box.Text);
         }
     }
 }

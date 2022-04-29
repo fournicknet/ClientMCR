@@ -16,20 +16,13 @@ using System.Windows.Shapes;
 namespace ClientMCR.CountriesPage
 {
     /// <summary>
-    /// Interaction logic for USCompanyAddress.xaml
+    /// Interaction logic for CanadaCompanyAddress.xaml
     /// </summary>
-    public partial class AfghanistanCompanyAddress : Page
+    public partial class CanadaCompanyAddress : Page
     {
-
-        public AfghanistanCompanyAddress()
+        public CanadaCompanyAddress()
         {
             InitializeComponent();
-        }
-
-        private void AddressLine1Box_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            // Not developed yet.
-            throw new NotImplementedException();
         }
     }
 }
