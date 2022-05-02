@@ -24,6 +24,11 @@
                     <MenuItem Header="File">
                         <MenuItem>Aname</MenuItem>
                     </MenuItem>
+                    <MenuItem Header="View">
+                        <MenuItem Header="Color Palette" Click="ColorPalette_ButtonClick">
+                            
+                        </MenuItem>
+                    </MenuItem>
                 </Menu>
             </StackPanel>
         

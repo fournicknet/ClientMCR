@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientMCR.ColorSchemes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -83,6 +84,11 @@ namespace ClientMCR
 
             //MainWindow mw = (MainWindow)Application.Current.MainWindow;
             //mw.Background = brush; 
+        }
+
+        private void ColorPalette_ButtonClick(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new ColorControlWindow(Main);
         }
 
         //private void CompanyCustomerSearch(object sender, RoutedEventArgs e)

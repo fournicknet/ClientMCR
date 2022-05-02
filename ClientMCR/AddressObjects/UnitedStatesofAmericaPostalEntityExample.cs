@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClientMCR.AddressObjects
 {
-    internal class UnitedStatesofAmericaPostalEntity
+    internal class UnitedStatesofAmericaPostalEntityExample
     {
         bool EditAddressEntity = false;
         string AddressLine1 = "null", AddressLine2 = "null", AddressLine3 = "null", AddressLine4 = "null", AddressCity = "null", AddressStateorTerritory = "null", AddressZipCode = "null";
