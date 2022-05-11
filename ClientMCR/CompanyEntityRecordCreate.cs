@@ -16,13 +16,7 @@ namespace ClientMCR
         static string datadocPath;
         static string companyDatadocPath;
         static int newDirectoryToCreate;
-        //public static int AssignEntityID()
-        //{
 
-
-
-
-        //}
         static async void directoryMonitor(string directoryToMonitor)
         {
             timeToWait = secondsInMinute * 60;

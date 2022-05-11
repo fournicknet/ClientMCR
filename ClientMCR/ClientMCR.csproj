@@ -10,6 +10,17 @@
 
   <ItemGroup>
     <None Remove="handrawn-spaceship.jpg" />
+    <None Remove="Images\rev1-BlackToWhite.bmp" />
+    <None Remove="Images\rev9-color-pallet-by-nick.bmp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\rev1-BlackToWhite.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\rev9-color-pallet-by-nick.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

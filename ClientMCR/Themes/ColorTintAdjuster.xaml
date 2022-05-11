@@ -1,0 +1,125 @@
+﻿<Page x:Class="ClientMCR.Themes.ColorTintAdjuster"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ClientMCR.Themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1000"
+      Title="ColorTintAdjuster">
+
+    <!--rev 8-->
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Column="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <StackPanel x:Name="TopTitleStackPanel" Background="White" Grid.Row="0" >
+                    <!--<TextBlock x:Name="TopTitleWindow" Background="White"/>-->
+                    <!--<Button Visibility="Hidden" />-->
+                </StackPanel>
+                <StackPanel x:Name="SecondTitleStackPanel" Grid.Row="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Margin="10,10,10,10">
+                            <TextBlock x:Name="TextObject1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Sample Block" ></TextBlock>
+                            <Label Name="TextObject2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Label Above TextBox" ></Label>
+                            <TextBox Text="          " Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBox>
+                        </StackPanel>
+
+                    </Grid>
+
+                </StackPanel>
+            </Grid>
+
+        </DockPanel>
+        <DockPanel Grid.Column="1" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="Save to TopTitle" Grid.Row="0" Click="OnClick_SaveToTopTitle" />
+                <Rectangle x:Name="TopTitle" Grid.Row="0" Height="40" Width="40" Margin="0,80,0,0" ></Rectangle>
+                <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="Save to Secondary Background" Grid.Row="1" Click="OnClick_SaveToSecondaryBackground" />
+                <Rectangle x:Name="SecondaryColor" Grid.Row="1" Height="40" Width="40" Margin="0,80,0,0" ></Rectangle>
+                <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="Save to Text" Grid.Row="2" Click="OnClick_SaveToTextObject"/>
+                <Rectangle x:Name="TextObject" Grid.Row="2" Height="40" Width="40" Margin="0,80,0,0" ></Rectangle>
+            </Grid>
+        </DockPanel>
+        <DockPanel Grid.Column="0" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="1" Grid.Row="0">
+                    <TextBlock Text="You can select a color below from here." />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Grid.Row="1" Name="ColorStackGrid">
+                    <!--<Image Grid.Column="1" HorizontalAlignment="Left"  Margin="0,0,0,0" Grid.RowSpan="2" Grid.Row="1" VerticalAlignment="Top" Source="images\rev7-color-pallete-by-nick-WPFAPPCanvas.bmp" />-->
+                </StackPanel>
+                <StackPanel Grid.Column="1" Grid.Row="2">
+                    <TextBlock Text="You can select a shade of black from below here." />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Grid.Row="3">
+                    <Canvas Name="BlackToWhiteCanvas" Background="white" >
+
+                    </Canvas>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Grid.Row="4">
+                    <TextBlock Text="You can select a shade or tint of a color below here after selecting a color." />
+                </StackPanel>
+
+                <DockPanel Grid.Column="1" Grid.Row="5">
+                    <Canvas x:Name="MyCanvasColorTint" Background="White" Margin="0 0 0 0">
+
+                    </Canvas>
+                </DockPanel>
+
+                <StackPanel Grid.Column="2" Grid.Row="3">
+                    <Canvas Name="CurrentColorSelected">
+
+                    </Canvas>
+                </StackPanel>
+
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Page>

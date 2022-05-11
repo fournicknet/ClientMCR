@@ -25,7 +25,7 @@
                         <MenuItem>Aname</MenuItem>
                     </MenuItem>
                     <MenuItem Header="View">
-                        <MenuItem Header="Color Palette" Click="ColorPalette_ButtonClick">
+                        <MenuItem Header="Color Palette Editor" Click="ColorPalette_ButtonClick">
                             
                         </MenuItem>
                     </MenuItem>

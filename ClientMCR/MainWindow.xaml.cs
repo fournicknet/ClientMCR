@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ClientMCR.Themes;
 
 namespace ClientMCR
 {
@@ -88,7 +89,7 @@ namespace ClientMCR
 
         private void ColorPalette_ButtonClick(object sender, RoutedEventArgs e)
         {
-            Main.Content = new ColorControlWindow(Main);
+            Main.Content = new ColorTintAdjuster();
         }
 
         //private void CompanyCustomerSearch(object sender, RoutedEventArgs e)

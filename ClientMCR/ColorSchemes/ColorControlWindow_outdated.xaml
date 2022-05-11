@@ -35,6 +35,8 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Button Grid.Row="0" Content="" Visibility="Hidden" />
                 <Button Grid.Row="1" Click="PrimaryColor_ButtonClick" >Primary</Button>
@@ -42,6 +44,8 @@
                 <Button Grid.Row="3" >Secondary</Button>
                 <Button Grid.Row="4" Content="" Visibility="Hidden" />
                 <Button Grid.Row="5" >Trinitary</Button>
+                <Button Grid.Row="6" Content="" Visibility="Hidden" />
+                <Button Grid.Row="7" Click="DrawGrid_ButtonClick" >DrawGrid</Button>
             </Grid>
         </StackPanel>
     </Grid>

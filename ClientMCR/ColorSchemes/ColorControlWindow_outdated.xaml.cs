@@ -29,7 +29,7 @@ namespace ClientMCR.ColorSchemes
 
             //DrawApixelNick();
 
-            //DrawSquareColorPalette();
+            
         }
 
         private void PrimaryColor_ButtonClick(object sender, RoutedEventArgs e)
@@ -37,17 +37,38 @@ namespace ClientMCR.ColorSchemes
             
         }
 
-        private void DrawApixelNick()
+        private void DrawALine(int x,int y,byte r,byte g,byte b)
+        {
+            Line myLine = new Line();
+
+            SolidColorBrush mySolidColorBrush = new SolidColorBrush();
+            mySolidColorBrush.Color = Color.FromArgb(255, r, g, b);
+
+            //myLine.Stroke = System.Windows.Media.Brushes.LightSteelBlue;
+            myLine.Stroke = mySolidColorBrush;
+            myLine.X1 = x;
+            myLine.X2 = x;
+            myLine.Y1 = y;
+            myLine.Y2 = y;
+            myLine.HorizontalAlignment = HorizontalAlignment.Left;
+            myLine.VerticalAlignment = VerticalAlignment.Top;
+            myLine.StrokeThickness = 2;
+
+            ColorGridDraw.Children.Add(myLine);
+        }
+        private async void DrawApixelNick(int x, int y, byte r, byte g, byte b)
         {
             PixelFormat pf = PixelFormats.Bgr32;
-            int width = 800;
-            int height = 800;
-            int rawStride = (width * pf.BitsPerPixel + 7) / 8;
-            byte[] rawImage = new byte[rawStride * height];
-
-            // Initialize the image with data.
-            Random value = new Random();
-            value.NextBytes(rawImage);
+            int width = 1;
+            int height = 1;
+            //int rawStride = (width * pf.BitsPerPixel + 7) / 8;
+            //byte[] rawImage = new byte[rawStride * height];
+            int rawStride = pf.BitsPerPixel;
+            byte[] rawImage = new byte[rawStride];
+            rawImage[0] = b; //blue
+            rawImage[1] = g;//Green
+            rawImage[2] = r; //Red
+            rawImage[3] = 0; //Alpha
 
             // Create a BitmapSource.
             BitmapSource bitmap = BitmapSource.Create(width, height,
@@ -56,17 +77,20 @@ namespace ClientMCR.ColorSchemes
 
             // Create an image element;
             Image myImage = new Image();
-            myImage.Width = 200;
-            myImage.Height = 200;
+            myImage.Width = 10;
+            myImage.Height = 10;
             // Set image source.
             myImage.Source = bitmap;
 
             
-            myImage.SetValue(Grid.RowProperty, 1);
-            myImage.SetValue(Grid.ColumnProperty, 1);
+            myImage.SetValue(Grid.RowProperty, x);
+            myImage.SetValue(Grid.ColumnProperty, y);
+
+            ColorGridDraw.Children.Add(myImage);
+
         }
 
-        private void DrawSquareColorPalette()
+        private async void DrawSquareColorPalette()
         {
             int x = 0
                 , y = 0;
@@ -79,13 +103,13 @@ namespace ClientMCR.ColorSchemes
                 {
                     for (byte b = 0; b < 256; b++)
                     {
-                        //DrawColorBlock(x, y, r, g, b);
-
+                        DrawApixelNick(x, y, r, g, b);
+                        DrawALine(x, y, r, g, b);
                     }
-                    AddColumnDefinitionToColorGridDraw();
+                    //AddColumnDefinitionToColorGridDraw();
                     y++;
                 }
-                AddRowDefinitionToColorGridDraw();
+                //AddRowDefinitionToColorGridDraw();
                 x++;
             }
             
@@ -128,29 +152,29 @@ namespace ClientMCR.ColorSchemes
         //    visual.BitmapEffect
         //}
 
-        private void DrawTextBlock(int x,int y, byte r, byte g, byte b)
-        {
-            string textX = x.ToString();
-            string textY = y.ToString();
-            string totalXY = textX + textY;
-            TextBlock TextBloAddressLine1 = new TextBlock();
-            TextBloAddressLine1.Text = "";
-            TextBloAddressLine1.Name = "totalXY";
-            TextBloAddressLine1.SetValue(Grid.RowProperty, x);
-            TextBloAddressLine1.SetValue(Grid.ColumnProperty, y);
+        //private void DrawTextBlock(int x,int y, byte r, byte g, byte b)
+        //{
+        //    string textX = x.ToString();
+        //    string textY = y.ToString();
+        //    string totalXY = textX + textY;
+        //    TextBlock TextBloAddressLine1 = new TextBlock();
+        //    TextBloAddressLine1.Text = "";
+        //    TextBloAddressLine1.Name = "totalXY";
+        //    TextBloAddressLine1.SetValue(Grid.RowProperty, x);
+        //    TextBloAddressLine1.SetValue(Grid.ColumnProperty, y);
 
-            Color currentColor = new Color();
-            currentColor.A = 255;
-            currentColor.R = r;
-            currentColor.G = g;
-            currentColor.B = b;
+        //    Color currentColor = new Color();
+        //    currentColor.A = 255;
+        //    currentColor.R = r;
+        //    currentColor.G = g;
+        //    currentColor.B = b;
  
-            TextBloAddressLine1.Background = new SolidColorBrush(currentColor);
+        //    TextBloAddressLine1.Background = new SolidColorBrush(currentColor);
 
-            ColorGridDraw.Children.Add(TextBloAddressLine1);
-        }
+        //    ColorGridDraw.Children.Add(TextBloAddressLine1);
+        //}
 
-        private void AddRowDefinitionToColorGridDraw()
+        private async void AddRowDefinitionToColorGridDraw()
         {
             var height = GridLength.Auto;
             height = new GridLength(1, GridUnitType.Star);
@@ -160,7 +184,7 @@ namespace ClientMCR.ColorSchemes
             });
         }
 
-        private void AddColumnDefinitionToColorGridDraw()
+        private async void AddColumnDefinitionToColorGridDraw()
         {
             var width = GridLength.Auto;
             width = new GridLength(1, GridUnitType.Star);
@@ -168,6 +192,11 @@ namespace ClientMCR.ColorSchemes
             {
                 Width = width
             });
+        }
+
+        private async void DrawGrid_ButtonClick(object sender, RoutedEventArgs e)
+        {
+            DrawSquareColorPalette();
         }
     }
 }
